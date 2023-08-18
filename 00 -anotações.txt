@@ -1,0 +1,30 @@
+
+//------------comandos-------------------//
+
+//instalar o tailwind:
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+//baixa os arquivos com todos as classes usadas no tailwind(neste arquivo é 
+//possivel acrescentar e alterar as classes,todavia não é recomendado).
+
+npx tailwindcss init -full
+
+
+//rebuid o tailwind
+
+npm run build-css
+
+
+//------------artquivos mexidos------------//
+
+tailwind.config.js
+src/tailwind.css
+src/style.css
+src/tailwind.tsx
+
+
+//------------comentários----------------//
+
