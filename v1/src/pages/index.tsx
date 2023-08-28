@@ -152,7 +152,7 @@ const handleClick = () =>{
     
   <Link to="/product">
     <div className='card'>
-      <img src="../../public/images/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
+      <img src="/images/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
         <span className='font-bold'>Tower of Fantasy</span>
         <span className='block text-sm text-gray-500'>Recipe by Mario </span>
