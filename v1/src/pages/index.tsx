@@ -170,7 +170,7 @@ const handleClick = () =>{
 
   <Link to="/product">
     <div className='card'>
-      <img src="../public/images/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
+      <img src="/images/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
         <span className='font-bold'>Tower of Fantasy </span>
         <span className='block text-sm text-gray-500'>Recipe by Mario </span>
@@ -224,7 +224,7 @@ const handleClick = () =>{
   {/* cads go here */}
   <Link to="/product">
   <div className='card'>
-    <img src="../public/images/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
+    <img src="/images/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
     <div className='m-4'>
       <span className='font-bold'>Warframe</span>
       <span className='block text-sm text-gray-500'>Recipe by Mario </span>
@@ -245,7 +245,7 @@ const handleClick = () =>{
 
   <Link to="/product">
   <div className='card'>
-    <img src="../public/images/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
+    <img src="/images/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
     <div className='m-4'>
       <span className='font-bold'>Tower of Fantasy</span>
       <span className='block text-sm text-gray-500'>Recipe by Mario </span>
@@ -263,7 +263,7 @@ const handleClick = () =>{
 
   <Link to="/product">
     <div className='card'>
-      <img src="../public/images/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
+      <img src="/images/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
         <span className='font-bold'>Tower of Fantasy</span>
         <span className='block text-sm text-gray-500'>Recipe by Mario </span>
