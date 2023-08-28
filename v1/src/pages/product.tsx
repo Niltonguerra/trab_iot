@@ -1,10 +1,10 @@
 
 import '../assets/css/main.css';
 import '../assets/css/noscript.css';
-import CaroselCuriosidades from "../components/Curiosidades/carosel-curiosidades";
-import CaroselBeneficios from "../components/Curiosidades/carosel-beneficios";
-import CaroselHistoria from "../components/Curiosidades/carosel-história";
-import CaroselReceitas from "../components/Curiosidades/carosel-receitas";
+import CaroselCuriosidades from "../components/caroseis/carosel-curiosidades";
+import CaroselBeneficios from "../components/caroseis/carosel-beneficios";
+import CaroselHistoria from "../components/caroseis/carosel-história";
+import CaroselReceitas from "../components/caroseis/carosel-receitas";
 import FormularioProduct from "../components/formulario";
 
 

@@ -36,7 +36,7 @@ export default function CaroselBeneficios() {
         className="mySwiper"
       >
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -53,7 +53,7 @@ export default function CaroselBeneficios() {
         </SwiperSlide>
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -71,7 +71,7 @@ export default function CaroselBeneficios() {
 
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -88,7 +88,7 @@ export default function CaroselBeneficios() {
         </SwiperSlide>
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -105,7 +105,7 @@ export default function CaroselBeneficios() {
         </SwiperSlide>
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -122,7 +122,7 @@ export default function CaroselBeneficios() {
         </SwiperSlide>
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -140,7 +140,7 @@ export default function CaroselBeneficios() {
 
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -158,7 +158,7 @@ export default function CaroselBeneficios() {
 
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -176,7 +176,7 @@ export default function CaroselBeneficios() {
 
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               
@@ -193,7 +193,7 @@ export default function CaroselBeneficios() {
         </SwiperSlide>
 
         <SwiperSlide>
-            <img className='curiosidades img' src="../../../public/img/carrotEarth.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrotEarth.jpg" alt="cenoura" />
             
             <div className='modal'>
               

@@ -131,7 +131,7 @@ const handleClick = () =>{
     {/* cads go here */}
   <Link to="/product">
     <div className='card'>
-      <img src="/images/carrot-cake.svg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
+      <img src="/images/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
       <div className='m-4'>
         <span className='font-bold'>Warframe</span>
         <span className='block text-sm text-gray-500'>Recipe by Mario </span>

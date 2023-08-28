@@ -37,7 +37,7 @@ export default function CaroselCuriosidades() {
 
         <SwiperSlide>
           <div className='curiosidades slideCard'>
-            <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+            <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
             <div className="text">
               <h4>Variedade de Cores</h4> <br></br>
               <p className='curiosidades slideCard conteudo'> 
@@ -52,7 +52,7 @@ export default function CaroselCuriosidades() {
 
         <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           
           <div className="text">
             <h4>Origem</h4> <br></br>
@@ -68,7 +68,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Vitamina A Rica</h4> <br></br>
             <p> 
@@ -82,7 +82,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Nutrientes e Benefícios</h4> <br></br>
             <p> 
@@ -96,7 +96,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Ajuda à Visão</h4> <br></br>
             <p> 
@@ -110,7 +110,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Lenda da Vitamina A</h4> <br></br>
             <p> 
@@ -125,7 +125,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Versatilidade na Culinária</h4> <br></br>
             <p> 
@@ -139,7 +139,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Cenouras Baby</h4> <br></br>
             <p> 
@@ -153,7 +153,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Valor Nutricional das Folhas</h4> <br></br>
             <p> 
@@ -167,7 +167,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Armazenamento Duradouro</h4> <br></br>
             <p> 
@@ -181,7 +181,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Agricultura Sustentável</h4> <br></br>
             <p> 
@@ -195,7 +195,7 @@ export default function CaroselCuriosidades() {
 
                 <SwiperSlide>
           <div className='curiosidades slideCard'>
-          <img className='curiosidades img' src="../../../public/img/carrot.jpg" alt="cenoura" />
+          <img className='curiosidades img' src="/images/carrot.jpg" alt="cenoura" />
           <div className="text">
             <h4>Crescimento Subterrâneo</h4> <br></br>
             <p> 

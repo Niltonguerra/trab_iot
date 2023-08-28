@@ -24,7 +24,7 @@ export default function CaroselReceitas() {
         <SwiperSlide>
             <div className='container'>
 
-              <img className='container img' src="../../../public/img/carrot-cake.jpg" alt="cenoura" />
+              <img className='container img' src="/images/carrot-cake.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -51,7 +51,7 @@ export default function CaroselReceitas() {
         <SwiperSlide>
             <div className='container'>
 
-              <img className='container img' src="../../../public/img/carrot-cake.jpg" alt="cenoura" />
+              <img className='container img' src="/images/carrot-cake.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -80,7 +80,7 @@ export default function CaroselReceitas() {
         <SwiperSlide>
             <div className='container'>
 
-              <img className='container img' src="../../../public/img/carrot-cake.jpg" alt="cenoura" />
+              <img className='container img' src="/images/carrot-cake.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -108,7 +108,7 @@ export default function CaroselReceitas() {
         <SwiperSlide>
             <div className='container'>
 
-              <img className='container img' src="../../../public/img/carrot-cake.jpg" alt="cenoura" />
+              <img className='container img' src="/images/carrot-cake.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -135,7 +135,7 @@ export default function CaroselReceitas() {
         <SwiperSlide>
             <div className='container'>
 
-              <img className='container img' src="../../../public/img/carrot-cake.jpg" alt="cenoura" />
+              <img className='container img' src="/images/carrot-cake.jpg" alt="cenoura" />
 
 
             <div className='modal'>

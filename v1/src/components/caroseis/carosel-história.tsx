@@ -58,7 +58,7 @@ export default function CaroselHistoria() {
       >
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -78,7 +78,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -97,7 +97,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -116,7 +116,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -137,7 +137,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -157,7 +157,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
@@ -178,7 +178,7 @@ export default function CaroselHistoria() {
 
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="../../../public/img/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
 
 
             <div className='modal'>
