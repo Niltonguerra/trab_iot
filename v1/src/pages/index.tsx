@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import '../assets/css/tailwind/style.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -35,7 +36,7 @@ const handleClick = () =>{
           <div className='flex items-center justify-between'>
             
             <h1 className='p-4 font-bold uppercase border-b border-none'>
-              <a href="/" className='hover:text-gray-800 border-none'>Food Ninja</a>
+              <Link to="/" className='hover:text-gray-800 border-none'>Food Ninja</Link>
             </h1>
             <div className='px-4 cursor-pointer md:hidden' onClick={handleClick} id='btn_menu'>
               <svg className='w-6' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
@@ -46,31 +47,31 @@ const handleClick = () =>{
           </div>
           <ul className={`text-sm mt-6 ${showMenu.show} md:block`} id="menu">
             <li className='py-1 font-bold text-gray-700'>
-              <a href="/" className='flex justify-end px-4 border-none'>
+              <Link to="/" className='flex justify-end px-4 border-none'>
                 <span>Home</span>
                 <svg className='w-5 ml-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
 
-              </a>
+              </Link>
             </li>
             <li className='py-1'>
-              <a href="/" className='flex justify-end px-4 border-none'>
+              <Link to="/" className='flex justify-end px-4 border-none'>
                 <span>About</span>
                 <svg className='w-5 ml-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
                 </svg>
 
-              </a>
+              </Link>
             </li>
             <li className='py-1'>
-              <a href="/" className='flex justify-end px-4 border-none'>
+              <Link to="/" className='flex justify-end px-4 border-none'>
                 <span>Contact</span>
                 <svg className='w-5 ml-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
 
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -81,8 +82,8 @@ const handleClick = () =>{
 
 <main className='px-16 py-6 bg-gray-100 md:col-span-2'>
   <div className='flex justify-center md:justify-end'>
-    <a href="/" className='transition duration-500 ease-out btn text-primary md:border-primary md:border-2 hover:primary hover:text-white border-none hover:bg-primary'>Log in</a>
-    <a href="/" className='ml-2 transition duration-500 ease-out btn text-primary md:border-primary md:border-2 hover:primary hover:text-white border-none hover:bg-primary'>Sign up</a>
+    <Link to="/" className='transition duration-500 ease-out btn text-primary md:border-primary md:border-2 hover:primary hover:text-white border-none hover:bg-primary'>Log in</Link>
+    <Link to="/" className='ml-2 transition duration-500 ease-out btn text-primary md:border-primary md:border-2 hover:primary hover:text-white border-none hover:bg-primary'>Sign up</Link>
   </div>
 
   <header >
@@ -96,7 +97,7 @@ const handleClick = () =>{
   <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
     {/* cads go here */}
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
       <div className='m-4'>
@@ -114,10 +115,10 @@ const handleClick = () =>{
         <span>25 mins</span>
       </div>
     </div>
-  </a>
+  </Link>
 
     
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -133,9 +134,9 @@ const handleClick = () =>{
         <span>25 mins</span>
       </div>
     </div>
-  </a>
+  </Link>
 
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -151,7 +152,7 @@ const handleClick = () =>{
         <span>25 mins</span>
       </div>
     </div>
-  </a>
+  </Link>
 
     
   </div>
@@ -161,7 +162,7 @@ const handleClick = () =>{
 <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
   {/* cads go here */}
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
   <div className='card'>
     <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
     <div className='m-4'>
@@ -179,10 +180,10 @@ const handleClick = () =>{
       <span>25 mins</span>
     </div>
   </div>
-  </a>
+  </Link>
 
 
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
   <div className='card'>
     <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
     <div className='m-4'>
@@ -198,9 +199,9 @@ const handleClick = () =>{
       <span>25 mins</span>
     </div>
   </div>
-  </a>
+  </Link>
 
-  <a href="http://localhost:5173/product">
+  <Link to="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -216,7 +217,7 @@ const handleClick = () =>{
         <span>25 mins</span>
       </div>
     </div>
-  </a>
+  </Link>
 
 </div>  
 
