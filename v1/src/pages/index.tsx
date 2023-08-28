@@ -96,8 +96,41 @@ const handleClick = () =>{
 
   <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {/* cads go here */}
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
     <div className='card'>
       <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
       <div className='m-4'>
@@ -118,7 +151,7 @@ const handleClick = () =>{
   </Link>
 
     
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
     <div className='card'>
       <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -136,7 +169,7 @@ const handleClick = () =>{
     </div>
   </Link>
 
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -157,12 +190,40 @@ const handleClick = () =>{
     
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <h4 className='pb-2 mt-12 font-bold border-b border-gray-200'>Most Popular</h4>
 
 <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
   {/* cads go here */}
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
   <div className='card'>
     <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
     <div className='m-4'>
@@ -183,7 +244,7 @@ const handleClick = () =>{
   </Link>
 
 
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
   <div className='card'>
     <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
     <div className='m-4'>
@@ -201,7 +262,7 @@ const handleClick = () =>{
   </div>
   </Link>
 
-  <Link to="http://localhost:5173/product">
+  <Link to="/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
