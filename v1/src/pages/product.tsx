@@ -1,4 +1,4 @@
-import React from "react";
+
 import '../assets/css/main.css';
 import '../assets/css/noscript.css';
 import CaroselCuriosidades from "../components/Curiosidades/carosel-curiosidades";
