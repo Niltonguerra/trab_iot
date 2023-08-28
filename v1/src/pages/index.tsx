@@ -96,7 +96,7 @@ const handleClick = () =>{
   <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
     {/* cads go here */}
-  <a href="http://localhost:5173/lettuce">
+  <a href="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
       <div className='m-4'>
@@ -117,7 +117,7 @@ const handleClick = () =>{
   </a>
 
     
-  <a href="http://localhost:5173/tomato">
+  <a href="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -135,7 +135,7 @@ const handleClick = () =>{
     </div>
   </a>
 
-  <a href="http://localhost:5173/carrot">
+  <a href="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
@@ -161,7 +161,7 @@ const handleClick = () =>{
 <div className='grid gap-10 mt-8 lg:grid-cols-3'>
 
   {/* cads go here */}
-  <a href="http://localhost:5173/lettuce">
+  <a href="http://localhost:5173/product">
   <div className='card'>
     <img src="../public/img/lettuce.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
     <div className='m-4'>
@@ -182,7 +182,7 @@ const handleClick = () =>{
   </a>
 
 
-  <a href="http://localhost:5173/tomato">
+  <a href="http://localhost:5173/product">
   <div className='card'>
     <img src="../public/img/tomato.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
     <div className='m-4'>
@@ -200,7 +200,7 @@ const handleClick = () =>{
   </div>
   </a>
 
-  <a href="http://localhost:5173/carrot">
+  <a href="http://localhost:5173/product">
     <div className='card'>
       <img src="../public/img/carrot.jpg" className='object-cover w-full h-32 sm:h-48'  alt="anime-1" />
       <div className='m-4'>
