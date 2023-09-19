@@ -1,0 +1,72 @@
+.container--login{
+    margin: 0;
+    padding: 0;
+    
+    .login{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: _palette(accent1);
+        padding: 1.75em 2em;
+        border-radius:5%;
+        box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.3);
+        min-height: 50vh;
+        min-width: 25vw;
+
+
+        .conteudo{
+            margin-bottom: 5vh; 
+            .logo{
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                height: 15vh;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2vh;
+            }
+
+
+            .texto{
+
+                .nome{
+                    .text{
+                    margin: 0;
+                    padding: 0;
+                    
+                    }
+                }
+
+                .senha{
+                    padding-top: 4vh;
+                    .text{
+                        margin: 0;
+                        padding: 0;    
+                    }
+
+                }
+            }
+
+            .esqueceu--senha{
+                text-decoration: none;
+                border: none;
+                // background-color: black;
+            }
+
+        }
+
+        .botao{
+            display: flex;
+        left: 50%;
+        transform: translate(-50%);
+
+        }
+    
+    }
+
+
+}
+
+
+

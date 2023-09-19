@@ -1,0 +1,75 @@
+
+
+// Misc.
+	$misc: (
+		z-index-base:		10000,
+		max-features:		20,
+		max-sidebar-links:	20
+	);
+
+// Duration.
+	$duration: (
+		transition:			0.2s,
+		activation:			1s
+	);
+
+// Size.
+	$size: (
+		border-radius:		0.25em,
+		border-width:		1px,
+		element-height:		2.75em,
+		element-margin:		2em,
+		sidebar-width:		18em,
+		sidebar-height:		3.5em,	// when <=large is active
+		inner-width:		75em
+	);
+
+// Font.
+	$font: (
+		family:				('Nunito'),
+		family-fixed:		('Nunito'),
+		weight:				normal,
+		weight-bold:		bold,
+		kerning-alt:		0.25em
+	);
+
+// Palette.
+	$palette: (
+		bg:					#003E1F,
+		bg-alt:				#F98031,
+		fg:					rgba(249, 128, 49, 0.55),
+		
+		// fonte
+		fg-bold:			#F98031,
+		fg-light:			#F98031,
+
+
+
+		
+		// carosel
+		font-carosel:			#FFFAF0,
+		
+		bg-carosel:			    rgba(0, 62, 31, .5),
+
+
+
+
+
+
+
+
+
+		border:				darken(#003E1F, 10),
+
+		border-bg:			rgba(249, 128, 49, 0.2),
+		accent1:			#FFFAF0,
+		accent1-alt:		darken(#FFFAF0, 10),
+
+		accent2:			#FFFAF0,
+		accent2-alt:		#F98031,
+		
+		accent3:			#FFFAF0,
+
+		
+		accent3-alt:		darken(#003E1F, 10)
+	);

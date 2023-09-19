@@ -23,4 +23,4 @@ npm install postcss --save-dev
 `npm install tailwindcss`,`npm install sass`,`npm install react-router-dom`,`npm install eslint --save-dev`,`npm install swiper --save`,`npm install react react-dom --save`,`npm install autoprefixer postcss --save-dev`,`npm install styled-components --save`,`npm install postcss --save-dev`
 
 
-`npm install tailwindcss sass react-router-dom eslint swiper react react-dom autoprefixer postcss styled-components postcss --save-dev`
+`npm install tailwindcss`,`npm install sass`,`npm install react-router-dom`,`npm install swiper --save`

@@ -1,0 +1,426 @@
+.text-titulo{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 100;
+
+}
+
+
+.curiosidades{
+          
+    .swiper {
+
+        width: 100%;
+        height: 100%;
+
+
+
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: _palette(font-carosel);
+        
+            /* Center slide text vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .swiper-slide img {
+            display: block;
+            object-fit: cover;
+
+        }
+
+    
+        
+
+
+        .slideCard{
+            display: flex;
+            @media (max-width: 768px) {
+                display: block;
+                justify-content: center;
+                align-items: center;
+
+            }
+            @media (min-width: 769px) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+
+            .conteudo{
+                @media (max-width: 768px) {
+                font-size: 1.1rem;
+                }
+                @media (min-width: 769px) {
+                font-size: 1.5rem;
+    
+                }
+
+            }
+            }
+
+
+
+        }
+            
+        .img {
+            height: 70vh;
+            object-fit: cover;
+            border-radius: 25px 0 25px 0;
+        }
+            
+
+        }
+    
+    
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+// beneficios carosel///////////////////////////////////////////////////
+
+
+
+.beneficios{
+        .swiper {
+            width: 100%;
+            border-radius: 2%;
+            height: 90vh;
+            background: _palette(bg-carosel);
+          }
+          
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: _palette(bg-carosel);
+          
+            /* Center slide text vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+          }
+
+          .modal{
+
+            width: 100%;
+            height: 100%;
+            background-color: _palette(bg-carosel);
+            position: absolute;
+
+
+            .text{
+                position: relative;
+                width: 90%;
+                height: 90%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+
+
+                .titulo{
+                    position: relative;
+                    // posicionamento
+                    text-align: center;
+                    // estilização
+                    color: _palette(font-carosel);
+                    font-weight: 100;
+                    top: 20%;
+
+
+                        @media (max-width: 768px) {
+                        font-size: 1.5rem;
+                        }
+                        @media (min-width: 769px) {
+                        font-size: 3rem;
+            
+                        }
+    
+
+                    
+                }
+                .conteudo{
+                    
+                    // posicionamento
+                    position: relative;
+                    top: 30%;
+
+                    // estilização
+                    font-weight: 100;
+                    color: _palette(font-carosel);
+
+                    @media (max-width: 768px) {
+                    font-size: 1.1rem;
+                    }
+                    @media (min-width: 769px) {
+                    font-size: 1.5rem;
+        
+                    }
+
+                }
+            }
+
+          }
+        
+            
+          
+
+
+    
+
+}
+
+
+
+.historia{
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+
+    }
+    
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: _palette(font-carosel);
+        border-radius:3%;
+    
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    
+    
+
+
+    .container{
+ 
+        transform: scale(0.9);
+
+
+        &:hover{
+            transform: scale(.95);
+            transition: all ease 0.4s;
+            border-radius:3%;
+        }
+
+
+        .img{
+            height: 100vh;
+            border-radius:3%;
+            z-index: 1;
+            
+            transition: all ease 0.4s;
+
+
+            &:hover{
+                border-radius:3%;
+            }
+            &:hover ~ .modal{
+                    opacity: 1;
+                    visibility: visible;
+                    transition-delay: 0.2s; 
+                    
+                
+            }
+    
+    
+    
+        }
+
+
+
+        .modal{
+            position:absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+            
+            display: block;
+            width: 95%;
+            height: 95%;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+          
+
+            background-color: _palette(bg-carosel);
+            border-radius: 3%;
+            transition: all ease 0.4s;
+
+
+            .text{
+                position: absolute;
+                color: _palette(font-carosel);
+                top: 10%;
+
+
+                .titulo{
+                    text-align: center;
+                    font-weight: 100;
+                    font-size: 1.5rem;
+                    margin: 10px;
+                }
+
+                .conteudo{
+                    text-align: center;
+                    font-weight: 100;
+                    font-size: 1.1rem;
+                    margin: 10px;
+                }
+            }
+
+
+        }
+
+
+    }
+
+
+    
+    }
+
+
+
+    .receitas{
+        
+.swiper {
+    width: 60%;
+    height: 60%;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: _palette(bg-carosel);
+  }
+  
+//   .swiper-slide:nth-child(1n) {
+//     background-color: rgb(206, 17, 17);
+//   }
+  
+
+  .container{
+
+    .img{
+        &:hover{
+            border-radius:3%;
+        }
+        &:hover ~ .modal{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.2s; 
+                
+            
+        }
+
+
+    }
+
+    
+    
+
+
+    .modal{
+        
+
+        
+        
+        @media (max-width: 768px) {
+            
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color:rgba(_palette(bg-carosel) , 1);
+            
+            
+        }
+            @media (min-width: 769px) {
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color:_palette(bg-carosel);
+
+            }
+
+        
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+
+        
+
+
+        .text{
+            position: relative;
+            color: _palette(font-carosel);
+            bottom: 0;
+
+
+            .titulo{
+                text-align: center;
+                font-weight: 100;
+                font-size: 1.5rem;
+                margin: 10px;
+            }
+
+            .conteudo{
+                text-align: center;
+                font-weight: 100;
+                font-size: 1.1rem;
+                margin: 10px;
+            }
+        }
+
+
+    }
+
+
+}
+
+
+    }
