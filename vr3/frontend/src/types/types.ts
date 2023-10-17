@@ -1,34 +1,34 @@
-
 // tipagem 
 
 
-
-export type Product = {
-    titulo_cur: string[];
-    conteudo_cur: string[];
-
-    titulo_ben: string[];
-    conteudo_ben: string[];
-
-    titulo_his: string[];
-    conteudo_his: string[];
-
-    titulo_rec: string[];
-    conteudo_rec: string[][];
-};
-
-export type Curiosidade = {
-    titulo_cur: string[];
-    conteudo_cur: string[];
-};
+export type ElementoTipo = string;
 
 
-export interface Professor {
-    id_professor: number;
-    name_professor: string;
-    // outras propriedades
+
+export interface FormComponent{
+    tipo: string;
+    conteudoCampo: string; 
+    enviarDadosParaPai: (dados: Elemento[]) => void;
+    excluirDadosJsonItem?: (index: number) => void;
+    subtopico: boolean;
+
+    excluirDadosJsonSubItem?: (indexPai: number,indexFilho: number) => void;
+    subtopicoTipo?: string;
+    SubTopicoConteudoCampo?: string;
 }
 
-export  interface ListComponentProps {
-    professor: Professor[];
+
+export interface Elemento {
+
+  [categoria: string]:{
+      tipo: string;
+      dados: string;
+      subcampo: { [key: number]: SubCampo };
+  }
 }
+
+export type SubCampo = {
+  subtopico: string |undefined;
+  SubTopicoConteudoCampo: string|undefined;
+};
+
