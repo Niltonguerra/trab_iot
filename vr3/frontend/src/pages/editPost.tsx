@@ -1,53 +1,75 @@
+import React from 'react';
+import { useState,useEffect,useCallback } from 'react';
+import { FormElement, FormState, SubCampo,FormularioPostAPI,FormPostAPITopico,FormSubmitData,FormPostAPISubTopico } from '../types/types';
+import { useForm, Controller } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
 
-function EditPost(){
+
+
+
+
+const EditPost = () => {
+
+
+
+    const { control, handleSubmit } = useForm<FormState>(); // Usando a interface FormState
+
+
+    const onSubmit = async (data) => {
+    
+        const nomeParaExcluir = "Pera";
+    
+        fetch(`http://localhost:3000/deletarPorNome/${nomeParaExcluir}`, {
+          method: 'DELETE',
+        })
+          .then(response => {
+            if (response.status === 200) {
+              console.log("Registro deletado com sucesso.");
+            } else if (response.status === 404) {
+              console.error("Registro não encontrado.");
+            } else {
+              console.error("Erro ao deletar o registro.");
+            }
+          })
+          .catch(error => {
+            console.error("Erro na solicitação:", error);
+          });
+    };
+
+
+
+
 
     return (
         <>
         <div className="container--criar">
             <div className="container">
                 <div className="conteudo">
-                <h1 className="titulo">Editar Post</h1>
+                
+                <form onSubmit={handleSubmit(onSubmit)}>
 
-                <div className="NomePost">
-                        <p className="text">Nome do post:</p>
-                        <input type="name" className="inpute" />
-                </div> 
 
-                <div className="Curiosidade">
-                        <p className="text">Curiosidade 01:</p>
-                        <input type="name" className="inpute" />
-                        <button className="adicionar" id="adicionar_">Adicionar mais uma curiosidade</button>
-                </div> 
+    <div className='campo'>
+    <label className='textCategoriaTitulo'>Nome do Alimento:</label>
+    <Controller
+        name="teste"
+        control={control}
 
-                <div className="Beneficios">
-                        <p className="text">Benéficio 01:</p>
-                        <input type="name" className="inpute" />
-                        <button className="adicionar" id="adicionar_">Adicionar mais um benéficio</button>
-                </div> 
-
-                <div className="história">
-                        <p className="text">fato histórico 01:</p>
-                        <input type="name" className="inpute" />
-                        <button className="adicionar" id="adicionar_">Adicionar mais um fato histórico</button>
-                </div> 
-
-                <div className="Receitas">
-                        <p className="text">Receita 01:</p>
-                        <input type="name" className="inpute" />
-                        <button className="adicionar" id="adicionar_">Adicionar mais uma passo para o preparo</button>
-                        <button className="adicionar" id="adicionar_">Adicionar mais uma receita</button>
-                </div> 
+        render={({ field }) => <textarea 
+                                    {...field} 
+                                    placeholder="titulo da categoria" 
+                                    className='categoriaTitulo' 
+                                    
+                                />}
+    />
+    </div>
 
                     
 
-
-
-
-
-
-
-
                     <button className="adicionar">enviar</button>
+                </form>
+
+                    
                 </div>
 
             </div>

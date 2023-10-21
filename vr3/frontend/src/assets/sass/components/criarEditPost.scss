@@ -15,6 +15,7 @@
         box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.3);
         min-height: auto;
         width: 90vw;
+        
 
 
         .titulo{
@@ -24,22 +25,83 @@
             position: relative;
             left: 50%;
             transform: translate(-50%);
-            .text{
-                text-align: center;
-                margin-bottom: 30px;
+
+            .campoSelect{
+                background-color: rgba(_palette(bg-alt),.2);
             }
-    
-            .inpute{
-                width: 100%;
-                border: 1px solid  _palette(bg);
-                border-radius: 2px;
-                opacity: 0.6;
+            .campo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100px;
+                position: relative;
+
+                
+                .textCategoriaTitulo{
+                    position: relative;
+                    margin-right: 15px;
+
+                    
+                   
+                    
+                    
+                }
+
+                .categoriaTitulo{
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: rgba(_palette(bg-alt),.2);
+                    width: 90%;
+                    padding: 5px;
+                    bottom: 10px;
+                    border: 1px solid  black;
+                    
+                    
+
+                    &:focus{
+                        
+                        border: 2px solid  rgba(_palette(bg-alt),.2);
+                    }
+                }
+                
+                
+        
+                .textarea{
+                    width: 100%;
+                    border: 1px solid  rgba(_palette(bg-alt),.2);
+                    border-radius: 2px;
+                    
+                    
+                    
+                }
+
+
+
+
             }
-            .adicionar{
+            
+            .caixaBtns{
+                display: flex;
+                
+
+                .btnAdicionar{
+                    width: 100%;
+                    margin: 50px;
+                    border-radius: 15px;
+                }
+                .btnRemover{
+                    width: 100%;
+                    margin: 50px;
+                    border-radius: 15px;
+                }
+            }
+            
+
+
+            .btnenviar{
                 width: 100%;
                 margin-top: 25px;
                 margin-bottom: 25px;
-
             }
         }
     }

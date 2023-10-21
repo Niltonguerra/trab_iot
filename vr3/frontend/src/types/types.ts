@@ -1,34 +1,99 @@
 // tipagem 
 
 
-export type ElementoTipo = string;
+
+export type SubCampo = {
+  subTituloForm: string |undefined;
+  SubDescricaoForm: string|undefined;
+};
 
 
-
-export interface FormComponent{
-    tipo: string;
-    conteudoCampo: string; 
-    enviarDadosParaPai: (dados: Elemento[]) => void;
-    excluirDadosJsonItem?: (index: number) => void;
-    subtopico: boolean;
-
-    excluirDadosJsonSubItem?: (indexPai: number,indexFilho: number) => void;
-    subtopicoTipo?: string;
-    SubTopicoConteudoCampo?: string;
+export interface FormElement {
+  tituloForm: string |null;
+  descricaoForm: string |null;
+  imagemForm:File | null;
+  subCampos?:  SubCampo[];
 }
 
 
-export interface Elemento {
+export interface FormState {
+  form: FormElement[];
+}
 
-  [categoria: string]:{
-      tipo: string;
-      dados: string;
-      subcampo: { [key: number]: SubCampo };
+export interface FormSubmitData {
+  nomeDoAlimento: string;
+  nomeCientifico: string;
+  tipoDoAlimento: string;
+  form: FormElement[];
+}
+
+
+// export interface FormPostTopico{
+//   [id_topico:number]:{
+//     topico:{
+//       idTopico: number| null;
+//       nomeTopico: string| null;
+//       descricaoTopico: string | null;
+//       foto: File | null;
+//       subTopico:{
+//         [id_sub_topico: number]:{
+//           idSubTopico: number;
+//           nomesubTopico: string |undefined;
+//           descricaosubTopico: string |undefined;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+export interface FormPostAPISubTopico{
+  [id_subTopico: number]:{
+    idSubTopico: number;
+    nomesubTopico: string |undefined;
+    descricaosubTopico: string |undefined;
+  }
+
+}
+
+
+export interface FormPostAPITopico{
+  [id_topico: number]: {
+      idTopico: number| null;
+      nomeTopico: string| null;
+      descricaoTopico: string | null;
+      foto:string | null;
+      subTopico: FormPostAPISubTopico;
   }
 }
 
-export type SubCampo = {
-  subtopico: string |undefined;
-  SubTopicoConteudoCampo: string|undefined;
-};
+
+export interface FormularioPostAPI{
+  Nome: string;
+  tipoDoAlimento: string;
+  nomeCientifico: string;
+  id_topico: FormPostAPITopico;
+}
+
+
+
+
+
+
+
+// export interface FormSubmitData {
+//   data: FormElement[];
+// }
+
+
+
+
+// export interface Elemento {
+
+//   [categoria: number]:{
+//       tituloForm: string;
+//       descricaoForm: string;
+//       subcampo: { [key: number]: SubCampo };
+//   }
+// }
 
