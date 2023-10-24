@@ -19,8 +19,9 @@
 
 
         .titulo{
-            text-align: center;
+            text-align: center; 
         }
+        
         .conteudo{
             position: relative;
             left: 50%;
@@ -42,7 +43,7 @@
                     margin-right: 15px;
 
                     
-                   
+                    
                     
                     
                 }
@@ -76,24 +77,78 @@
                 }
 
 
+                
 
 
+            }
+
+
+            .inputIngredientes{
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: rgba(_palette(bg-alt),.2);
+                    width: 100%;
+                    padding: 5px;
+                    bottom: 10px;
+                    border: 1px solid  black;
+                    
+                    
+
+                    &:focus{
+                        
+                        border: 2px solid  rgba(_palette(bg-alt),.2);
+                    }
+                    
             }
             
             .caixaBtns{
                 display: flex;
                 
 
-                .btnAdicionar{
-                    width: 100%;
-                    margin: 50px;
-                    border-radius: 15px;
+
+                // tela pequena
+                @media (max-width: 768px) {
+                    display: block;
+                    margin-left: 0px;
+                    .btnAdicionar{
+                        display: block;
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                        margin-left: 0px;
+                    }
+
+                    .btnRemover{
+                        display: block;
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                        margin-left: 0px;
+                    }
+
+
                 }
-                .btnRemover{
-                    width: 100%;
-                    margin: 50px;
-                    border-radius: 15px;
+
+
+                // tela grande
+                @media (min-width: 768px) {
+                    
+
+
+                    .btnAdicionar{
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                    }
+                    
+                    
+                    .btnRemover{
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                    }
                 }
+
             }
             
 
@@ -102,6 +157,7 @@
                 width: 100%;
                 margin-top: 25px;
                 margin-bottom: 25px;
+                
             }
         }
     }

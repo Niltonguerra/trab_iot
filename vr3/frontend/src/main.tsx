@@ -10,6 +10,7 @@ import CriarPost from './pages/criarPost';
 import EditPost from './pages/editPost';
 import EsqueciMinhaSenha from './pages/esqueciMinhaSenha';
 import Dashboard from './pages/dashboard';
+import CriarReceita from './pages/criarReceita';
 
 
 // comandos importantes:
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/product" element={<Product/>}></Route>   
         <Route path="/login" element={<Login/>}></Route>  
         <Route path="/criarPost" element={<CriarPost/>}></Route> 
+        <Route path="/criarReceita" element={<CriarReceita/>}></Route> 
         <Route path="/editarPost" element={<EditPost/>}></Route> 
         <Route path="/esqueciMinhaSenha" element={<EsqueciMinhaSenha/>}></Route>
         <Route path="/dashboard" element={<Dashboard/>}></Route>

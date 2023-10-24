@@ -3090,18 +3090,52 @@ body.is-ie .wrapper.fullscreen {
   border: 1px solid rgba(249, 128, 49, 0.2);
   border-radius: 2px;
 }
+.container--criar .container .conteudo .inputIngredientes {
+  height: 45px;
+  border-radius: 5px;
+  background-color: rgba(249, 128, 49, 0.2);
+  width: 100%;
+  padding: 5px;
+  bottom: 10px;
+  border: 1px solid black;
+}
+.container--criar .container .conteudo .inputIngredientes:focus {
+  border: 2px solid rgba(249, 128, 49, 0.2);
+}
 .container--criar .container .conteudo .caixaBtns {
   display: flex;
 }
-.container--criar .container .conteudo .caixaBtns .btnAdicionar {
-  width: 100%;
-  margin: 50px;
-  border-radius: 15px;
+@media (max-width: 768px) {
+  .container--criar .container .conteudo .caixaBtns {
+    display: block;
+    margin-left: 0px;
+  }
+  .container--criar .container .conteudo .caixaBtns .btnAdicionar {
+    display: block;
+    width: 100%;
+    margin: 50px;
+    border-radius: 15px;
+    margin-left: 0px;
+  }
+  .container--criar .container .conteudo .caixaBtns .btnRemover {
+    display: block;
+    width: 100%;
+    margin: 50px;
+    border-radius: 15px;
+    margin-left: 0px;
+  }
 }
-.container--criar .container .conteudo .caixaBtns .btnRemover {
-  width: 100%;
-  margin: 50px;
-  border-radius: 15px;
+@media (min-width: 768px) {
+  .container--criar .container .conteudo .caixaBtns .btnAdicionar {
+    width: 100%;
+    margin: 50px;
+    border-radius: 15px;
+  }
+  .container--criar .container .conteudo .caixaBtns .btnRemover {
+    width: 100%;
+    margin: 50px;
+    border-radius: 15px;
+  }
 }
 .container--criar .container .conteudo .btnenviar {
   width: 100%;

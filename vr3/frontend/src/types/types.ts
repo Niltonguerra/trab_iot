@@ -1,7 +1,7 @@
 // tipagem 
 
 
-
+// formulario de Post de Alimentos
 export type SubCampo = {
   subTituloForm: string |undefined;
   SubDescricaoForm: string|undefined;
@@ -28,23 +28,8 @@ export interface FormSubmitData {
 }
 
 
-// export interface FormPostTopico{
-//   [id_topico:number]:{
-//     topico:{
-//       idTopico: number| null;
-//       nomeTopico: string| null;
-//       descricaoTopico: string | null;
-//       foto: File | null;
-//       subTopico:{
-//         [id_sub_topico: number]:{
-//           idSubTopico: number;
-//           nomesubTopico: string |undefined;
-//           descricaosubTopico: string |undefined;
-//         }
-//       }
-//     }
-//   }
-// }
+
+
 
 
 export interface FormPostAPISubTopico{
@@ -81,19 +66,24 @@ export interface FormularioPostAPI{
 
 
 
-// export interface FormSubmitData {
-//   data: FormElement[];
-// }
+// formulario de receitas
+
+
+
+export interface Ingredientes{
+  ingredientes: string;
+}
+
+export interface ModoDePreparo{
+  passos: string;
+}
 
 
 
 
-// export interface Elemento {
-
-//   [categoria: number]:{
-//       tituloForm: string;
-//       descricaoForm: string;
-//       subcampo: { [key: number]: SubCampo };
-//   }
-// }
-
+export interface ReceitaAPI{
+  nome: string;
+  foto: string;
+  ingredientes: { nome: string }[]; // Agora é um array de objetos
+  modoDePreparo: { passos: string }[]; // Também é um array de objetos
+}
