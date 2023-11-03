@@ -1,0 +1,180 @@
+.container--criar{
+    margin: 0px;
+    
+    padding: 0px;
+    
+    .container{
+        
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: _palette(accent1);
+        padding: 1.75em 2em;
+        border-radius:2em;
+        box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.3);
+        min-height: auto;
+        width: 90vw;
+        
+
+
+        .titulo{
+            text-align: center; 
+        }
+        
+        .conteudo{
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+
+            .campoSelect{
+                background-color: rgba(_palette(bg-alt),.2);
+            }
+            .campo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100px;
+                position: relative;
+
+                
+                .textCategoriaTitulo{
+                    position: relative;
+                    margin-right: 15px;
+                }
+
+
+
+                .tempoDePreparo{
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: rgba(_palette(bg-alt),.2);
+                    width: 90%;
+                    padding: 5px;
+                    bottom: 10px;
+                    border: 1px solid  black;
+
+                    &:focus{
+                        
+                        border: 2px solid  rgba(_palette(bg-alt),.2);
+
+                        
+                        outline: 2px solid  _palette(bg-alt);
+
+                    }
+                }
+
+                .categoriaTitulo{
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: rgba(_palette(bg-alt),.2);
+                    width: 90%;
+                    padding: 5px;
+                    bottom: 10px;
+                    border: 1px solid  black;
+                    
+                    
+
+                    &:focus{
+                        
+                        border: 2px solid  rgba(_palette(bg-alt),.2);
+                    }
+                }
+                
+                
+        
+                .textarea{
+                    width: 100%;
+                    border: 1px solid  rgba(_palette(bg-alt),.2);
+                    border-radius: 2px;
+                    
+                    
+                    
+                }
+
+
+                
+
+
+            }
+
+
+            .inputIngredientes{
+                    height: 45px;
+                    border-radius: 5px;
+                    background-color: rgba(_palette(bg-alt),.2);
+                    width: 100%;
+                    padding: 5px;
+                    bottom: 10px;
+                    border: 1px solid  black;
+                    
+                    
+
+                    &:focus{
+                        
+                        border: 2px solid  rgba(_palette(bg-alt),.2);
+                    }
+                    
+            }
+            
+            .caixaBtns{
+                display: flex;
+                
+
+
+                // tela pequena
+                @media (max-width: 768px) {
+                    display: block;
+                    margin-left: 0px;
+                    .btnAdicionar{
+                        display: block;
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                        margin-left: 0px;
+                    }
+
+                    .btnRemover{
+                        display: block;
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                        margin-left: 0px;
+                    }
+
+
+                }
+
+
+                // tela grande
+                @media (min-width: 768px) {
+                    
+
+
+                    .btnAdicionar{
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                    }
+                    
+                    
+                    .btnRemover{
+                        width: 100%;
+                        margin: 50px;
+                        border-radius: 15px;
+                    }
+                }
+
+            }
+            
+
+
+            .btnenviar{
+                width: 100%;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                
+            }
+        }
+    }
+}
