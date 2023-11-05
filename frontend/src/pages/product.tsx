@@ -6,9 +6,9 @@ import CaroselBeneficios from "../components/caroseis/carosel-beneficios";
 import CaroselHistoria from "../components/caroseis/carosel-história";
 import CaroselReceitas from "../components/caroseis/carosel-receitas";
 import FormularioProduct from "../components/formulario";
-import { fetchReceitasData } from "../API/receitas";
-import  { fetchAlimentosData} from "../API/alimentos"
-
+import { fetchBuscaIngredientes } from "../API/receitas";
+import  { fetchAlimentosRegistro} from "../API/alimentos"
+import { useParams } from 'react-router-dom';
 // importando os dados do backend
 
 // import {fetchProfessorData} from '../API/conectBackend';
@@ -26,31 +26,65 @@ import  { fetchAlimentosData} from "../API/alimentos"
 function Product() {
 
 	const [receitas, setReceitas] = useState([]);
-	const [alimentos, setAlimentos] = useState([]);
-	const [confirDadosChegaram,setConfirDadosChegaram] = useState(false);
-  
-  
+	const [alimento, setAlimento] = useState([]);
+
+	const { nomeAlimento } = useParams();
+
 	const fetchData = async () => {
-		try {
-		  const receitasData = await fetchReceitasData();
-		  setReceitas(receitasData);
-  
-		  const alimentosData = await fetchAlimentosData();
-		  setAlimentos(alimentosData);
-  
+
+
 		
-		  setConfirDadosChegaram(true);
-		} catch (error) {
-		  console.error("Erro ao buscar dados:", error);
-		}
-	  };
-  
-	useEffect(() => {
-		if(confirDadosChegaram === false){
-		fetchData(); // Chame a função assíncrona para buscar os dados
-	  }
-	}, []);
-  
+// busca dados da receita
+		fetchBuscaIngredientes(nomeAlimento)
+		.then(data => {
+			// Lidar com os dados
+			setReceitas(data);
+		  })
+		  .catch(error => {
+			// Lidar com erros
+			console.error("Erro ao buscar ingredientes das receitas para renderizar as receitas:", error);
+		  });
+
+
+
+// busca dados dos alimentos
+		fetchAlimentosRegistro(nomeAlimento)
+			.then(data => {
+			setAlimento(data);
+			})
+			.catch(error => {
+				console.error(error);
+			});
+		};
+	
+
+
+		useEffect(() => {
+			
+			fetchData(); // Chame a função assíncrona para buscar os dados
+		
+
+		
+		}, []);
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 return (
@@ -59,110 +93,104 @@ return (
 
 {/* <!-- Sidebar --> */}
 		
-			<section id="sidebar">
-				<div className=" inner ">
-					<nav>
-						<ul>
+	<section id="sidebar">
+		<div className=" inner ">
+			<nav>
+				<ul>
 
+					<li><a href='#topicos'>Tópicos do Alimento</a></li>
 
-
-						{alimentos.map((alimento,index) => (
-							<div key={index}>
-
-							<li><a href={'#'+alimento.nome}>{alimento.nome}</a></li>
-
+					{alimento && alimento.id_topico && alimento.id_topico.map((topico, index) => (
+						<div key={index}>
+									<li><a href={'#'+topico.nomeTopico}>{topico.nomeTopico}</a></li> 
 						</div>
-						))}
+					))} 
+					<br />
 
-							{/* <li><a href="#three">Receitas</a></li>
-							<li><a href="#formulario">formulário</a></li> */}
-						</ul>
-					</nav>
-				</div>
-			</section>
+					<li><a href='#receitas'>Receitas com o Alimento</a></li>
+
+					{receitas && receitas.map((receita, index) => (
+							<div key={index}>
+						<li><a href={'#'+receita.nome}>{receita.nome}</a></li> 
+					</div>
+					))} 
+
+					<li><a href="#formulario">formulário</a></li> 
+
+				</ul>
+			</nav>
+		</div>
+	</section>
 		
 
 
-
-
-
-
-
-
 		{/* <!-- Wrapper --> */}
-			<div id="wrapper">
+	<div id="wrapper">
 
 
 
-				{alimentos.map((alimento,index) => (
-					<div key={index}>
+	<div id="topicos" ></div>
+	{alimento && alimento.id_topico && alimento.id_topico.map((topico, index) => (
+			<div key={index}>
 
-							{/* <!-- Intro --> */}
-						<section id={alimento.nome} className="wrapper style1 fullscreen fade-up">
-							<div className="inner">
-								<CaroselCuriosidades />
-							</div>
-							<br></br><br></br>
-						</section>
-
-					</div>
-						))}
-
-
-
-
-
-
-
-
-
-
-{/* 
-				 		<!-- One --> 
-					<section id="one" className="wrapper style2 spotlights">
+			{index % 3 === 0 ? (
+				<section id={topico.nomeTopico} className="wrapper style1 fullscreen fade-up">
 					<div className="inner">
-						<CaroselBeneficios/>
+					<CaroselCuriosidades topico={topico} />
 					</div>
-					</section>
+				</section>
+			) : null} 
 
-						<!-- Two --> 
-					<section id="two" className="wrapper style3 fade-up">
-						<div className="inner">
-							<CaroselHistoria/>
-						</div>
-					</section> */}
-
-
-
-
-
+			{index % 3 === 1 ? (
+				// <!-- One --> 
+				<section id={topico.nomeTopico} className="wrapper style2 spotlights">
+					<div className="inner">
+						<CaroselBeneficios topico={topico}/>
+					</div>
+				</section>
+			) : null}
 
 
+			{index % 3 === 2 ? (
+				<section id={topico.nomeTopico} className="wrapper style3 fade-up">
+					<div className="inner">
+						<CaroselHistoria topico={topico}/>
+					</div>
+				</section>
+			) : null} 
+
+		</div>
+	))} 
+
+
+	{/* receitas  */}
+
+
+		{receitas && receitas.map((receita, index) => (
+		<div key={index}>
+			<section id={receita.nome} className="wrapper style1 fade-up"><br /><br /><br /><br /><br /><br />
+			
+			{index === 0 ? (
+				<div id="receitas" ><h2 className='tituloReceita'>Receitas</h2></div>
+			):null}
+			
+				<CaroselReceitas receita={receita}/>
+			</section>
+		</div>
+	))} 
 
 
 
 
 
+	{/* formulario  */}
+	<section id="formulario" className="wrapper style1 fade-up">
+		<div className="inner">
+			<FormularioProduct/>
+		</div>
+	</section>
 
-
-					{/* 
-						receitas 
-					<section id="three" className="wrapper style1 fade-up">
-						<CaroselReceitas/>
-					</section>
-
-
-
-						formulario 
-					<section id="formulario" className="wrapper style1 fade-up">
-						<div className="inner">
-							<FormularioProduct/>
-						</div>
-					</section>
-					
-					 */}
-
-			</div>
+	</div>
 
 		{/* <!-- Footer --> */}
 			<footer id="footer" className="wrapper style1-alt">

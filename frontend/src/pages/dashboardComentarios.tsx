@@ -1,23 +1,22 @@
 import { Link } from "react-router-dom";
 
-import { deletarDadoReceita, fetchReceitasNome } from "../API/receitas";
 import {useState, useEffect } from "react";
+import { fetchFormData,fetchDeletarForm } from "../API/formularioAPI";
 
 
 
-function DashboardReceitas(){
+function DashboardComentarios(){
 
 
-    const [receitas, setReceitas] = useState([]);
+    const [alimentos, setAlimentos] = useState([]);
 
 
     const fetchData = async () => {
         try {
-          const receitasData = await fetchReceitasNome();
-          setReceitas(receitasData);
+          const alimentosData = await fetchFormData();
+          setAlimentos(alimentosData);
 
-        //   const receitas = await fetchReceitasData();
-        //   console.log(receitas);
+
         } catch (error) {
           console.error("Erro ao buscar dados:", error);
         }
@@ -26,18 +25,16 @@ function DashboardReceitas(){
     useEffect(() => {
         
         fetchData(); // Chame a função assíncrona para buscar os dados
-        
     }, []);
 
-const delAlimento = async (nome:string) => {
-    await deletarDadoReceita(nome);
+const delForm = async (id:string) => {
+    await fetchDeletarForm(id);
     fetchData();
 } 
    
 
     return (
         <>
-
         <div className="container--dashboard">
             <div className="container">
                 <div className="conteudo">
@@ -46,18 +43,17 @@ const delAlimento = async (nome:string) => {
 
                         
                         <div className="flexbox">
-                            <h1>Seus Post de Receitas</h1>
+                            <h1>Comentarios das pessoas</h1>
 
-                        
                             <div className="btns">
+                                <Link to={`/dashboardReceitas`} className="link">
+                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
+                                    ir para posts de receitas
+                                </Link>
+
                                 <Link to={`/dashboardPost`} className="link">
                                     <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
                                     ir para posts de hortaliças
-                                </Link>
-
-                                <Link to={`/dashboardComentarios`} className="link">
-                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                    ir para comentarios
                                 </Link>
 
                                 <Link to={`/`} className="link">
@@ -65,20 +61,10 @@ const delAlimento = async (nome:string) => {
                                     Sair da conta
                                 </Link>
                             </div>
-
-
-
-
-
                         </div>
 
 
-                        <div className="criar">
-                            <Link className="botaoCriar" to="/criarReceita">
-                                Criar nova receita
-                                <img className="icon_create" src="/images/create.svg" alt="icon_create" />
-                            </Link>
-                        </div>
+
 
                         
                     </div>
@@ -87,28 +73,29 @@ const delAlimento = async (nome:string) => {
 
                         <thead>
                         <tr>
-                            <th>nome da Receita</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
+                            <th>titulo do comentario</th>
+                            <th>Ler o comentario</th>
+                            <th>excluir</th>
+                            
                         </tr>
                         </thead>
 
 
                         <tbody>
-                            {receitas.map((alimento) => (
-                                <tr key={alimento._id}>
+                            {alimentos.map((formulario) => (
+                                <tr key={formulario._id}>
 
 
-                                    <td>{alimento.nome}</td>
+                                    <td>{formulario.titulo}</td>
 
                                     <td>
-                                        <Link to={`/editarReceita/${alimento.nome}`}>
-                                        <img className="icon" src="/images/edit.svg" alt="icon_edit" />
+                                        <Link to={`/lerComentario/${formulario._id}`}>
+                                        <img className="icon" src="/images/reader-outline.svg" alt="icon_read" />
                                         </Link>
                                     </td>
 
                                     <td>
-                                        <p className="btnDeletaRegistro" onClick={() => delAlimento(alimento.nome)
+                                        <p className="btnDeletaRegistro" onClick={() => delForm(formulario._id)
                                                                                 }>
                                         <img className="icon" src="/images/delete.svg" alt="icon_delete" />
                                         </p>
@@ -132,4 +119,4 @@ const delAlimento = async (nome:string) => {
     )
 }
 
-export default DashboardReceitas;
+export default DashboardComentarios;

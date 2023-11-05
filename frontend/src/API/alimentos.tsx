@@ -19,38 +19,69 @@ export async function fetchAlimentosNome() {
 
 
 // trás todas as informações de todos os registros do banco de dados do banco de dados
-export async function fetchAlimentosData() {
-  try {
-    const response = await fetch("http://localhost:3000/alimentos");
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      console.error("Erro ao buscar dados. Status:", response.status);
-    }
-  } catch (error) {
-    console.error("Erro ao buscar dados:", error);
-  }
 
+export function fetchAlimentosData() {
+  return new Promise((resolve, reject) => {
+    fetch("http://localhost:3000/alimentos")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error("Erro ao buscar dados. Status:", response.status);
+          reject("Erro ao buscar dados. Status: " + response.status);
+        }
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar dados:", error);
+        reject("Erro ao buscar dados: " + error.message);
+      });
+  });
 }
+
 
 
 // trás todas as informasções de apenas um registro no banco de dados
 
-export async function fetchAlimentosRegistro(nome: string) {
-  try {
-    const response = await fetch(`http://localhost:3000/alimentos/${nome}`);
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      console.error("Erro ao buscar dados. Status:", response.status);
-    }
-  } catch (error) {
-    console.error("Erro ao buscar dados:", error);
-  }
-
+export function fetchAlimentosRegistro(nome: string) {
+  return new Promise((resolve, reject) => {
+    fetch(`http://localhost:3000/alimentos/${nome}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error("Erro ao buscar dados. Status:", response.status);
+          reject("Erro ao buscar dados. Status: " + response.status);
+        }
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar dados:", error);
+        reject("Erro ao buscar dados: " + error.message);
+      });
+  });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -36,7 +36,6 @@ try {
 
 
 // trás todas as informasções de apenas um registro no banco de dados
-
 export async function fetchReceitasRegistro(nome: string) {
 try {
   const response = await fetch(`http://localhost:3000/receitas/${nome}`);
@@ -146,4 +145,27 @@ export async function  deletarDadoReceita(nome:string) {
     } catch (error) {
       console.error("Erro ao excluir o alimento:", error);
     }
+}
+
+
+
+// vai para o banco e pesquisa todas as receitas pelo ingrediente e traz aquelas que tem o ingrediente passado como parametro
+export function fetchBuscaIngredientes(nomeAlimento:string) {
+  const url = `http://localhost:3000/receitas/buscaIngredientes/${nomeAlimento}`;
+
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Erro ao buscar dados. Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 }

@@ -3191,9 +3191,13 @@ body.is-ie .wrapper.fullscreen {
 .container--dashboard .container .conteudo .cabecario .flexbox {
   display: flex;
 }
-.container--dashboard .container .conteudo .cabecario .flexbox .link {
+.container--dashboard .container .conteudo .cabecario .flexbox .btns {
+  margin-top: 3%;
   margin-left: auto;
   align-self: center;
+}
+.container--dashboard .container .conteudo .cabecario .flexbox .btns .link {
+  margin-bottom: 15px;
   border: none;
   display: flex;
 }
@@ -3246,6 +3250,12 @@ body.is-ie .wrapper.fullscreen {
 }
 .container--esqueci--senha .container .conteudo .botao {
   width: 100%;
+}
+
+.tituloReceita {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 100;
 }
 
 /* Header */

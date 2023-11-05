@@ -46,10 +46,22 @@ const delAlimento = async (nome:string) => {
                         <div className="flexbox">
                             <h1>Seus Post de hortaliças</h1>
 
-                            <Link to={`/dashboardReceitas`} className="link">
-                                <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                ir para posts de receitas
-                            </Link>
+                            <div className="btns">
+                                <Link to={`/dashboardReceitas`} className="link">
+                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
+                                    ir para posts de receitas
+                                </Link>
+
+                                <Link to={`/dashboardComentarios`} className="link">
+                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
+                                    ir para comentarios
+                                </Link>
+                                
+                                <Link to={`/`} className="link">
+                                    <img className="icon_create" src="/images/log-in-outline.svg" alt="icon_navigate" />
+                                    Sair da conta
+                                </Link>
+                            </div>
                         </div>
 
 
@@ -100,6 +112,8 @@ const delAlimento = async (nome:string) => {
                     </table>
                     
 
+                
+                    
                 </div>
 
 

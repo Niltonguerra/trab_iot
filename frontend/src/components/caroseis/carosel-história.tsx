@@ -17,7 +17,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 
 
-export default function CaroselHistoria() {
+export default function CaroselHistoria(props) {
 
 
 
@@ -46,27 +46,43 @@ export default function CaroselHistoria() {
 
     return (
     <div className="historia">
-      <Swiper
+
+
+    <h2 className='text-titulo'>{props.topico.nomeTopico}</h2>
+
+    <p className='curiosidades slideCard conteudo'> 
+    {props.topico.descricaoTopico}
+    
+    </p>
+
+
+    <Swiper
         slidesPerView={numero}
         spaceBetween={10}
         freeMode={true}
         pagination={{
-          clickable: true,
+            clickable: true,
         }}
         modules={[FreeMode, Pagination]}
         className="mySwiper"
-      >
+    >
+
+
+
+
+
+{props.topico && props.topico.subTopico.map((SubTopico, index) => (
+  <div key={index+SubTopico.nomesubTopico}>
         <SwiperSlide>
             <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
+            <img className='container img' src={props.topico.foto.imagem_grande.url} alt={"img"+props.topico.nomeTopico} />
 
 
             <div className='modal'>
                 <div className='text'>
-                    <div className='titulo'>Origem na Ásia</div>
+                    <div className='titulo'>{SubTopico.nomesubTopico}</div>
                     <div className='conteudo'> 
-                        As cenouras são cultivadas há milênios. Acredita-se que sua origem remonta ao Afeganistão e às regiões circundantes. 
-                        As primeiras cenouras não se assemelhavam muito às variedades modernas; elas eram provavelmente mais finas e roxas.
+                        {SubTopico.descricaosubTopico}
                     </div>
                 </div>
             </div>
@@ -74,133 +90,8 @@ export default function CaroselHistoria() {
             </div>
 
         </SwiperSlide>
-
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Cultivo na Europa</div>
-                    <div className='conteudo'> 
-                        As cenouras foram gradualmente introduzidas em diferentes partes do mundo. No início, as cenouras eram mais valorizadas 
-                        por suas folhas e sementes do que pela raiz. Os romanos e os gregos antigos conheciam e consumiam cenouras.
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Evolução das Cores</div>
-                    <div className='conteudo'> Inicialmente, as cenouras eram de cores variadas, incluindo branco, amarelo e roxo. 
-                        A cenoura alaranjada que conhecemos hoje é o resultado de cruzamentos seletivos feitos na Holanda no século XVII. 
-                        A seleção foi feita para homogeneizar a cor laranja em homenagem à Casa de Orange-Nassau, uma família real holandesa.
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Popularização</div>
-                    <div className='conteudo'> 
-                        A variedade de cenoura alaranjada rapidamente se tornou popular, não apenas por seu sabor, mas também por suas 
-                        propriedades nutricionais. A cor alaranjada é devida aos carotenoides, especialmente ao betacaroteno, que é convertido em vitamina 
-                        A no organismo
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Nutrição e Saúde</div>
-                    <div className='conteudo'> 
-                        As cenouras são conhecidas por serem 
-                        ricas em antioxidantes, fibras, vitaminas e minerais. O betacaroteno é especialmente importante 
-                        para a saúde dos olhos e da pele.
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Cultivo Global</div>
-                    <div className='conteudo'>
-                        Hoje, as cenouras são cultivadas em todo o mundo, em uma variedade de climas e solos.
-                        Elas são uma parte essencial da culinária e podem ser consumidas cruas, cozidas, em sopas, saladas, 
-                        sucos e muito mais.
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-
-        <SwiperSlide>
-            <div className='container'>
-            <img className='container img' src="/images/carrotplant.jpg" alt="cenoura" />
-
-
-            <div className='modal'>
-                <div className='text'>
-                    <div className='titulo'>Cenoura na Cultura Pop</div>
-                    <div className='conteudo'> 
-                        A cenoura também tem um lugar na cultura popular. Ela é frequentemente associada à ideia de melhorar a visão 
-                        (graças ao betacaroteno) e é um alimento popular para personagens de desenhos animados, como o coelho 
-                        Pernalonga da Warner Bros.
-                    </div>
-                </div>
-            </div>
-                
-            </div>
-
-        </SwiperSlide>
-
-
-
-
-
-
+        </div>
+))}
 
 
       </Swiper>

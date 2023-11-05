@@ -132,7 +132,7 @@ const handleClick = () =>{
         {/* cads go here */}
         {alimentos.map((alimento,index) => (
           <div key={index}>
-          <Link to="/product">
+          <Link to={`/product/${alimento.nome}`}>
             <div className='card'>
               {/* aqui é id_topico[0] pois ele está pegando a imagem do primeiro topico que é inserido */}
               <img src={alimento.id_topico[0].foto.imagem_media.url} className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
@@ -152,9 +152,9 @@ const handleClick = () =>{
 
 
 
-      <h4 className='pb-2 mt-12 font-bold border-b border-gray-200'>Receitas</h4>
+      {/* <h4 className='pb-2 mt-12 font-bold border-b border-gray-200'>Receitas</h4>
 
-    <div className='grid gap-10 mt-8 lg:grid-cols-3'>
+      <div className='grid gap-10 mt-8 lg:grid-cols-3'>
       {receitas.map((receita,index) => (
           <div key={index}>
           <Link to="/product">
@@ -177,7 +177,7 @@ const handleClick = () =>{
         </div>
         ))}
 
-    </div>  
+    </div>   */}
 
         <div className='flex justify-center'>
           <div className='mt-5 transition duration-300 ease-out transform btn bg-secondary-100 text-secondary-200 hover:shadow-inner hover:scale-125 hover:bg-opacity-50'> load more</div>

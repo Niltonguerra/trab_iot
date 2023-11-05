@@ -36,12 +36,19 @@
 
             .flexbox{
                 display: flex;
-                .link{
+                .btns{
+
+                    margin-top:3% ;
                     margin-left: auto;
-                    align-self: center; 
-                    border: none;
-                    display: flex;
+                    align-self: center;
+                     
+                    .link{
+                        margin-bottom: 15px;    
+                        border: none;
+                        display: flex;
+                    }
                 }
+                
             }
             .criar{
                 margin: 30px;

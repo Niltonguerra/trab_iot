@@ -1,7 +1,43 @@
-
-
+import { useForm, Controller } from 'react-hook-form';
+import { fetchCriarForm } from '../API/formularioAPI';
+import { FormularioAPI } from '../types/typesFormulario';
 
 export default function FormularioProduct() {
+
+    const { control, handleSubmit } = useForm(); 
+
+
+    const onSubmit = async (data) => {
+
+        const formularioAPI:FormularioAPI = {
+            nome:data.nome,
+            email:data.email,
+            titulo:data.titulo,
+            mensagem:data.mensagem
+        }
+
+        const api = JSON.stringify(formularioAPI)
+        
+        fetchCriarForm(api)
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
 
 <div className="formulario">
@@ -13,26 +49,80 @@ export default function FormularioProduct() {
     </p>
     <div className="split style1">
         <section>
-            <form method="post" action="#">
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="fields">
-                    <div className="field half">
-                        <label htmlFor="name">Nome</label>
-                        <input type="text" name="name" id="name" />
-                    </div>
-                    <div className="field half">
-                        <label htmlFor="email">Email</label>
-                        <input type="text" name="email" id="email" />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="message">Message</label>
-                        <textarea name="message" id="message" rows={5}></textarea>
-                    </div>
+
+
+                <div className="field half">
+                    <label htmlFor="name">Nome</label>
+                    <Controller
+                    name="nome"
+                    control={control}
+                    render={({ field }) => <input 
+                                            {...field} 
+                                            placeholder="digite seu email aqui!" 
+                                            type="text"
+                                            required
+                                            />}
+                    />
+                </div>
+                
+                <div className="field half">
+                    <label htmlFor="email">Email</label>
+                    <Controller
+                    name="email"
+                    control={control}
+                    render={({ field }) => <input 
+                                            {...field} 
+                                            placeholder="digite seu email aqui!" 
+                                            type="text"
+                                            required
+                                            />}
+                    />
+                </div>
+
+
+                <div className="field"><br/>
+                    <label htmlFor="title">Titulo</label>
+                    <Controller
+                    name="titulo"
+                    control={control}
+                    render={({ field }) => <textarea 
+                                            {...field} 
+                                            placeholder="digite o titulo do comentário" 
+                                            required
+                                            rows={1}
+                                            name="message" id="message"
+                                            />}
+                    />
+                </div>
+
+                <div className="field"><br/>
+                    <label htmlFor="message">mensagem</label>
+                    <Controller
+                    name="mensagem"
+                    control={control}
+                    render={({ field }) => <textarea 
+                                            {...field} 
+                                            placeholder="digite seu comentario!" 
+                                            required
+                                            rows={5}
+                                            name="message" id="message"
+                                            />}
+                    />
+                </div>
+
                 </div>
                 <ul className="actions">
-                    <li><a href="" className="button submit">Enviar mensagem</a></li>
+                    <button>Enviar mensagem</button>
                 </ul>
             </form>
         </section>
+
+
+
+
+
         <section>
             <ul className="contact">
                 <li>
@@ -43,7 +133,8 @@ export default function FormularioProduct() {
                 </li>
                 <li>
                     <h3>Email</h3>
-                    <a href="#">niltondg.30@gmail.com</a>
+                    <a href="#">niltondg.30@gmail.com</a><br/>
+                    <a href="#">enzoTavares@gmail.com</a>
                 </li>
                 <li>
                     <h3>Phone</h3>

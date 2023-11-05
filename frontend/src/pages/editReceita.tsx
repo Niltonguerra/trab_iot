@@ -44,62 +44,62 @@ const EditReceita = () => {
     try {
 
 
-      const pass = dadoRecebidoDoBanco.modoDePreparo;
-      const passosArray = []; // Crie um array temporário para conter elementos com subcampos
+  const pass = dadoRecebidoDoBanco.modoDePreparo;
+  const passosArray = []; // Crie um array temporário para conter elementos com subcampos
+
   
-      
-      for (let index = 0; index < pass.length; index++) {
-        // console.log(index + "campo");
-        const novoPasso = `passo-${uuidv4()}`;
+  for (let index = 0; index < pass.length; index++) {
+    // console.log(index + "campo");
+    const novoPasso = `passo-${uuidv4()}`;
 
-        const novoElemento: ModoDePreparo = {
-          passos: novoPasso,
-        };
+    const novoElemento: ModoDePreparo = {
+      passos: novoPasso,
+    };
 
-        // Adicione o elemento com subcampos ao array temporário
-        passosArray.push(novoElemento);
+    // Adicione o elemento com subcampos ao array temporário
+    passosArray.push(novoElemento);
 
-      }
+  }
 
-      // Clone a matriz `form` para evitar mutações diretas no estado
-      const novaForm = [...form];
-      // Adicione todos os elementos com subcampos a `novaForm`
-      novaForm.push(...passosArray);
-      
-      // Atualize o estado `form` com a nova matriz
-      setForm(novaForm);
-
+  // Clone a matriz `form` para evitar mutações diretas no estado
+  const novaForm = [...form];
+  // Adicione todos os elementos com subcampos a `novaForm`
+  novaForm.push(...passosArray);
+  
+  // Atualize o estado `form` com a nova matriz
+  setForm(novaForm);
 
 
 
-      const ingred = dadoRecebidoDoBanco.ingredientes;
-      const ingredArray = [];
 
-      for (let index = 0; index < ingred.length; index++) {
+  const ingred = dadoRecebidoDoBanco.ingredientes;
+  const ingredArray = [];
 
-        const novoTituloName = `ingrediente-${uuidv4()}`;
-        
-        const novoElemento:Ingredientes = {
-          nome: novoTituloName,
-        };
-        // Adicione o elemento com subcampos ao array temporário
-        ingredArray.push(novoElemento);
-      }
+  for (let index = 0; index < ingred.length; index++) {
 
-      // Clone a matriz `form` para evitar mutações diretas no estado
-      const novaIngredientes = [...ingredientes];
-      // Adicione todos os elementos com subcampos a `novaForm`
-      novaIngredientes.push(...ingredArray);
+    const novoTituloName = `ingrediente-${uuidv4()}`;
+    
+    const novoElemento:Ingredientes = {
+      nome: novoTituloName,
+    };
+    // Adicione o elemento com subcampos ao array temporário
+    ingredArray.push(novoElemento);
+  }
 
-      // Atualize o estado `form` com a nova matriz
-      setIngredientes(novaIngredientes);
-      
-      setConfirCamposRenderizados(true);      
-    } catch (error) {
-      console.error("Erro ao buscar dados:", error);
-      
-    }
-  };
+    // Clone a matriz `form` para evitar mutações diretas no estado
+    const novaIngredientes = [...ingredientes];
+    // Adicione todos os elementos com subcampos a `novaForm`
+    novaIngredientes.push(...ingredArray);
+
+    // Atualize o estado `form` com a nova matriz
+    setIngredientes(novaIngredientes);
+    
+    setConfirCamposRenderizados(true);      
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error);
+    
+  }
+};
 
 
 
@@ -420,11 +420,11 @@ const removerElementoingredientes = (index:number) => {
               name={item.passos}
               control={control}
               render={({ field }) => <textarea 
-                                      {...field} 
-                                      placeholder="Descreva passo a passo como é realizado a receita" 
-                                      className='categoriaTitulo' 
-                                      required
-                                      />}
+                {...field} 
+                placeholder="Descreva passo a passo como é realizado a receita" 
+                className='categoriaTitulo' 
+                required
+                />}
             />
           </div>
           {index === form.length - 1 && (
