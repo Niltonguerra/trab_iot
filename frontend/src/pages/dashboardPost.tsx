@@ -7,7 +7,7 @@ import {useState, useEffect } from "react";
 function DashboardPost(){
 
 
-    const [alimentos, setAlimentos] = useState([]);
+    const [alimentos, setAlimentos] = useState<any>([]);
 
 
     const fetchData = async () => {
@@ -86,20 +86,20 @@ const delAlimento = async (nome:string) => {
 
 
                         <tbody>
-                            {alimentos.map((alimento) => (
-                                <tr key={alimento._id}>
+                            {alimentos.map((alimento:any) => (
+                                <tr key={alimento?._id}>
 
 
-                                    <td>{alimento.nome}</td>
+                                    <td>{alimento?.nome}</td>
 
                                     <td>
-                                        <Link to={`/editarAlimento/${alimento.nome}`}>
+                                        <Link to={`/editarAlimento/${alimento?.nome}`}>
                                         <img className="icon" src="/images/edit.svg" alt="icon_edit" />
                                         </Link>
                                     </td>
 
                                     <td>
-                                        <p className="btnDeletaRegistro" onClick={() => delAlimento(alimento.nome)
+                                        <p className="btnDeletaRegistro" onClick={() => delAlimento(alimento?.nome)
                                                                                 }>
                                         <img className="icon" src="/images/delete.svg" alt="icon_delete" />
                                         </p>

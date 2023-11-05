@@ -17,7 +17,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 
 
 
-export default function CaroselHistoria(props) {
+export default function CaroselHistoria(props:any) {
 
 
 
@@ -71,7 +71,7 @@ export default function CaroselHistoria(props) {
 
 
 
-{props.topico && props.topico.subTopico.map((SubTopico, index) => (
+{props.topico && props.topico.subTopico.map((SubTopico:any, index:number) => (
   <div key={index+SubTopico.nomesubTopico}>
         <SwiperSlide>
             <div className='container'>

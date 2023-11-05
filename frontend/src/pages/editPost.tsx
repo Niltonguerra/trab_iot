@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useState,useEffect} from 'react';
 import { FormElement, SubTopico, FormPostAPITopico, FormPostAPISubTopico,FormPostDataOnSubmit } from '../types/typesAlimentos';
 import { useForm, Controller } from 'react-hook-form';
@@ -14,9 +14,11 @@ const EditPost = () => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  const { control, handleSubmit,setValue } = useForm(); // Usando a interface FormState
+  const { control, handleSubmit,setValue } = useForm<any>(); // Usando a interface FormState
 
-  const [form, setForm] = useState<FormElement[]>([]); // Usando a interface FormElement
+  // const [form, setForm] = useState<FormElement[]>([]); // Usando a interface FormElement
+
+  const [form, setForm] = useState<any>([]); // Usando a interface FormElement
 
   // dado enviado da outra pagina para esse formulario para permitir a edição dos dados
   const { nomeDoAlimentoEdit } = useParams();
@@ -60,7 +62,8 @@ const EditPost = () => {
   // tratamento dos campos para pegar as informações do banco de dados e criar e colocar os campos no formulario 
   // e colocar as informações buscadas do banco de dados nos campos criados ainda nessa sessão de código
   
-  const [alimentosData, setAlimentosData] = useState<FormPostDataOnSubmit>();
+  // const [alimentosData, setAlimentosData] = useState<FormPostDataOnSubmit>();
+  const [alimentosData, setAlimentosData] = useState<any>();
   const [confirDadosChegaram,setConfirDadosChegaram] = useState<boolean>(false);
   const [confirCamposRenderizados,setConfirCamposRenderizados] = useState<boolean>(false);
   
@@ -120,7 +123,7 @@ const EditPost = () => {
   const fetchData = async (nome:string) => {
     try {
       const data = await fetchAlimentosRegistro(nome);
-      setAlimentosData(data); // Atualize o estado com os dados
+      setAlimentosData(data as FormPostDataOnSubmit); // Atualize o estado com os dados
       
       setConfirDadosChegaram(true)
       
@@ -161,7 +164,10 @@ const EditPost = () => {
             SubDescricaoForm: SubcampoDescricao,
           };
   
-          novoElemento.subCampos.push(novoSubcampo);
+          // novoElemento.subCampos.push(novoSubcampo);
+          if (novoElemento.subCampos) {
+            novoElemento.subCampos.push(novoSubcampo);
+          }
         }
   
         // Adicione o elemento com subcampos ao array temporário
@@ -197,34 +203,42 @@ const registrarDados = () => {
 
       // preenchendo os campos já criados na etapa anterior
 
-      setValue("nomeDoAlimento", alimentosData.nome);
-      setValue("nomeCientifico", alimentosData.nomeCientifico)
-      setValue("tipoDoAlimento", alimentosData.tipoDoAlimento)
-      setValue("descricaoVegetal", alimentosData.descricaoVegetal)
+      setValue("nomeDoAlimento", alimentosData?.nome);
+      setValue("nomeCientifico", alimentosData?.nomeCientifico)
+      setValue("tipoDoAlimento", alimentosData?.tipoDoAlimento)
+      setValue("descricaoVegetal", alimentosData?.descricaoVegetal)
       
-      const idTopico = alimentosData.id_topico;
+
+
+
+
       
+      const idTopico = alimentosData?.id_topico;
+
+
+      if(idTopico){
+        
       for (let index = 0; index < idTopico.length; index++) {
-        const idSubTopico = alimentosData.id_topico[index].subTopico;
+        const idSubTopico = alimentosData?.id_topico[index]?.subTopico;
   
 
         // console.log(index + "campo");
 
 
-        setValue(form[index].tituloForm, alimentosData.id_topico[index].nomeTopico)
-        setValue(form[index].descricaoForm, alimentosData.id_topico[index].descricaoTopico)
+        setValue(form[index]?.tituloForm, alimentosData?.id_topico[index]?.nomeTopico)
+        setValue(form[index]?.descricaoForm, alimentosData?.id_topico[index]?.descricaoTopico)
 
         
         for (let subindex = 0; subindex < idSubTopico.length; subindex++) {
           // console.log(subindex + "subcampo");
-          setValue(form[index].subCampos[subindex].subTituloForm, alimentosData.id_topico[index].subTopico[subindex].nomesubTopico)
-          setValue(form[index].subCampos[subindex].SubDescricaoForm, alimentosData.id_topico[index].subTopico[subindex].descricaosubTopico)
+          setValue(form[index]?.subCampos[subindex]?.subTituloForm, alimentosData?.id_topico[index]?.subTopico[subindex].nomesubTopico)
+          setValue(form[index]?.subCampos[subindex]?.SubDescricaoForm, alimentosData?.id_topico[index]?.subTopico[subindex].descricaosubTopico)
           
         
         }
       }
 
-
+    }
 
 };
 
@@ -293,31 +307,38 @@ const registrarDados = () => {
 
 
     
-    const onSubmit = async (data) => {
+    const onSubmit = async (data:any) => {
       const updatedTransformJson = { ...transformJson };
     
       // Crie um array de promessas
-      const promises = form.map(async (item, index) => {
+      const promises = form.map(async (item:any, index:number) => {
         const subTopicos: FormPostAPISubTopico = {};
     
-        item.subCampos?.forEach((subcampo, subindex) => {
+        item.subCampos?.forEach((subcampo:any, subindex:number) => {
+          
           subTopicos[subindex] = {
             idSubTopico: subindex,
             nomesubTopico: data[form[index]?.subCampos[subindex].subTituloForm],
             descricaosubTopico: data[form[index]?.subCampos[subindex].SubDescricaoForm],
           };
+
+          subcampo = subcampo+subcampo;
         });
     
-        const fileInput = document.getElementById(form[index].imagemForm);
-        const file = fileInput.files[0];
-    
+        const fileInput = document.getElementById('fileInput') as HTMLInputElement;
         let imagemReceita;
-        
-        if(file === undefined) {
-          imagemReceita = alimentosData.id_topico[index].foto;
-        }else{
-          imagemReceita = await imgbbUmaImagem(file);
+
+        if (fileInput?.files && fileInput.files[0]) {
+          imagemReceita = await imgbbUmaImagem(fileInput.files[0]);
+        } else if (alimentosData && alimentosData.id_topico[index]) {
+          
+            imagemReceita = alimentosData.id_topico[index]?.foto;
+          
+          
         }
+
+
+        
     
         const APIFormTopico = {
           [index]: {
@@ -334,9 +355,9 @@ const registrarDados = () => {
     
       // Aguarde todas as promessas serem resolvidas
       await Promise.all(promises);
-    
+
       setTransformJson(updatedTransformJson);
-    
+
       const APIForm = {
         nome: data.nomeDoAlimento,
         tipoDoAlimento: data.tipoDoAlimento,
@@ -344,9 +365,13 @@ const registrarDados = () => {
         descricaoVegetal: data.descricaoVegetal,
         id_topico: updatedTransformJson,
       };
-    
+
       const API = JSON.stringify(APIForm);
-      editardadosAlimento(API,nomeDoAlimentoEdit);
+
+// console.log(data[form[0]?.tituloForm]);
+      if (nomeDoAlimentoEdit) {
+        editardadosAlimento(API, nomeDoAlimentoEdit);
+      }
     };
     
     
@@ -526,19 +551,19 @@ const excluirSubcampo = (elementIndex:number, subcampoIndex:number) => {
 
 
 // transforma a imagem em string64 antes de enviar ela para o react hook form
-const handleImageUpload = (e) => {
-  return new Promise((resolve) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const base64 = e.target.result;
-        resolve(base64);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-};
+// const handleImageUpload = (e) => {
+//   return new Promise((resolve) => {
+//     const file = e.target.files[0];
+//     if (file) {
+//       const reader = new FileReader();
+//       reader.onload = (e) => {
+//         const base64 = e.target.result;
+//         resolve(base64);
+//       };
+//       reader.readAsDataURL(file);
+//     }
+//   });
+// };
 
 
 
@@ -691,7 +716,7 @@ const handleImageUpload = (e) => {
 
 <br /><br /><br />
 
-      {form.map((item, index) => (
+      {form.map((item:any, index:number) => (
         
         
         
@@ -782,14 +807,14 @@ const handleImageUpload = (e) => {
           
           {item.subCampos.length > 0 && (
   <div>
-            {item.subCampos.map((subcampo, subindex) => (
+            {item.subCampos.map((subcampo:any, subindex:number) => (
               
               
             
               
               <div key={subindex}>
 
-
+                  <p className={subcampo} ></p>
                   <h3 className='titulo'> SubCategoria: {subindex}</h3>
 
 

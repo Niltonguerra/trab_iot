@@ -1,0 +1,104 @@
+.container--dashboard{
+    margin: 0;
+    padding: 0;
+    
+    .container{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: _palette(accent1);
+        padding: 1.75em 2em;
+        border-radius:2em;
+        box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.3);
+        height: auto;
+        width: 90vw;
+
+
+        .conteudo{
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+
+            .icon_create{
+                height: 30px;
+                margin-left: 15px;
+                margin-right: 7px;
+                margin-top: 1px;
+                
+            }
+        
+            .cabecario{
+                display: block;
+                align-items: center;
+                justify-content: center;
+
+
+            .flexbox{
+                display: flex;
+                .btns{
+
+                    margin-top:3% ;
+                    margin-left: auto;
+                    align-self: center;
+                     
+                    .link{
+                        margin-bottom: 15px;    
+                        border: none;
+                        display: flex;
+                    }
+                }
+                
+            }
+            .criar{
+                margin: 30px;
+                display: block;
+                align-items: center;
+                position: relative;
+                float: right;
+
+                .botaoCriar{
+                    display: flex;
+                    border: none;
+                }
+
+                
+            }
+            
+            }
+
+
+            
+                
+                .icon{
+                    height: 30px;
+                    
+                }
+
+
+                
+                td{
+                    
+                    
+                    
+                    
+                    p{
+                        padding: 0;
+                        margin: 0;
+                        
+                    }
+
+                    .btnDeletaRegistro{
+                        cursor: pointer;
+                    }
+                    
+
+                }
+            
+            
+
+
+        
+        }
+    }
+}

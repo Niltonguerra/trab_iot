@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+import { BACKEND_URL } from './env'; 
+
 
 // trás todos os nomes e o _id de todos os registros do banco de dados
 export async function fetchReceitasNome() {
   try {
-    const response = await fetch("http://localhost:3000/receitas/Nomeid");
+    const response = await fetch(`${BACKEND_URL}receitas/Nomeid`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -21,7 +23,7 @@ export async function fetchReceitasNome() {
 // trás todas as informações de todos os registros do banco de dados do banco de dados
 export async function fetchReceitasData() {
 try {
-  const response = await fetch("http://localhost:3000/receitas");
+  const response = await fetch(`${BACKEND_URL}receitas`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -38,7 +40,7 @@ try {
 // trás todas as informasções de apenas um registro no banco de dados
 export async function fetchReceitasRegistro(nome: string) {
 try {
-  const response = await fetch(`http://localhost:3000/receitas/${nome}`);
+  const response = await fetch(`${BACKEND_URL}receitas/${nome}`);
   if (response.ok) {
     const data = await response.json();
     return data;
@@ -55,7 +57,7 @@ try {
 
 
 export async function  criarPostReceita(API:string) {
-  fetch('http://localhost:3000/receitas', {
+  fetch(`${BACKEND_URL}receitas`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -78,7 +80,7 @@ export async function  criarPostReceita(API:string) {
 
 // export function criarPostReceita(API: string): Promise<any> {
 //   return new Promise((resolve, reject) => {
-//     fetch('http://localhost:3000/receitas', {
+//     fetch('${BACKEND_URL}receitas', {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -105,10 +107,10 @@ export async function  criarPostReceita(API:string) {
 export async function  editardadosReceitas(API:string,registro:string) {
     
   try {
-    await axios.delete(`http://localhost:3000/receitas/deletarPorNome/${registro}`); // Substitua a URL pela rota adequada em seu backend
+    await axios.delete(`${BACKEND_URL}receitas/deletarPorNome/${registro}`); // Substitua a URL pela rota adequada em seu backend
     
       // tentativa 02
-      fetch('http://localhost:3000/receitas', {
+      fetch(`${BACKEND_URL}receitas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -139,7 +141,7 @@ export async function  editardadosReceitas(API:string,registro:string) {
 export async function  deletarDadoReceita(nome:string) {
 
   try {
-      await axios.delete(`http://localhost:3000/receitas/deletarPorNome/${nome}`); // Substitua a URL pela rota adequada em seu backend
+      await axios.delete(`${BACKEND_URL}receitas/deletarPorNome/${nome}`); // Substitua a URL pela rota adequada em seu backend
       // Após a exclusão bem-sucedida, você pode atualizar a lista de alimentos se necessário
       
     } catch (error) {
@@ -151,7 +153,7 @@ export async function  deletarDadoReceita(nome:string) {
 
 // vai para o banco e pesquisa todas as receitas pelo ingrediente e traz aquelas que tem o ingrediente passado como parametro
 export function fetchBuscaIngredientes(nomeAlimento:string) {
-  const url = `http://localhost:3000/receitas/buscaIngredientes/${nomeAlimento}`;
+  const url = `${BACKEND_URL}receitas/buscaIngredientes/${nomeAlimento}`;
 
   return new Promise((resolve, reject) => {
     fetch(url)

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState,useEffect } from 'react';
 import { ModoDePreparo, Ingredientes, ReceitaAPI } from '../types/typesReceitas';
 import { useForm, Controller } from 'react-hook-form';

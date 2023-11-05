@@ -1,10 +1,15 @@
 import axios from 'axios';
 
+import { BACKEND_URL } from './env'; 
+
+
+
+
 
 // trás todos os nomes e o _id de todos os registros do banco de dados
 export async function fetchAlimentosNome() {
     try {
-      const response = await fetch("http://localhost:3000/alimentos/Nomeid");
+      const response = await fetch(`${BACKEND_URL}alimentos/Nomeid`);
       if (response.ok) {
         const data = await response.json();
         return data;
@@ -22,7 +27,7 @@ export async function fetchAlimentosNome() {
 
 export function fetchAlimentosData() {
   return new Promise((resolve, reject) => {
-    fetch("http://localhost:3000/alimentos")
+    fetch(`${BACKEND_URL}alimentos`)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -47,7 +52,7 @@ export function fetchAlimentosData() {
 
 export function fetchAlimentosRegistro(nome: string) {
   return new Promise((resolve, reject) => {
-    fetch(`http://localhost:3000/alimentos/${nome}`)
+    fetch(`${BACKEND_URL}alimentos/${nome}`)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -83,15 +88,15 @@ export function fetchAlimentosRegistro(nome: string) {
 
 
 
-
+// chamada para editar
 
 export async function  editardadosAlimento(API:string,registro:string) {
     
   try {
-    await axios.delete(`http://localhost:3000/alimentos/deletarPorNome/${registro}`); // Substitua a URL pela rota adequada em seu backend
+    await axios.delete(`${BACKEND_URL}alimentos/deletarPorNome/${registro}`); // Substitua a URL pela rota adequada em seu backend
     
       // tentativa 02
-      fetch('http://localhost:3000/alimentos', {
+      fetch(`${BACKEND_URL}alimentos`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -118,11 +123,11 @@ export async function  editardadosAlimento(API:string,registro:string) {
 
 
 
-
+// chamada para criar
 
 export async function  criarPostAlimento(API:string) {
 
-fetch('http://localhost:3000/alimentos', {
+fetch(`${BACKEND_URL}alimentos`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -149,12 +154,12 @@ fetch('http://localhost:3000/alimentos', {
 
 
 
-
+// chamada para deletar
 
 export async function  deletarDadoAlimento(nome:string) {
 
   try {
-      await axios.delete(`http://localhost:3000/alimentos/deletarPorNome/${nome}`); // Substitua a URL pela rota adequada em seu backend
+      await axios.delete(`${BACKEND_URL}alimentos/deletarPorNome/${nome}`); // Substitua a URL pela rota adequada em seu backend
       // Após a exclusão bem-sucedida, você pode atualizar a lista de alimentos se necessário
       
     } catch (error) {

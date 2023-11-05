@@ -15,7 +15,7 @@ import '../../assets/css/main.css';
 // import required modules
 import { Mousewheel, Pagination,Autoplay } from 'swiper/modules';
 
-export default function CaroselBeneficios(props) {
+export default function CaroselBeneficios(props:any) {
   return (
     <div className='beneficios' >
 
@@ -46,7 +46,7 @@ export default function CaroselBeneficios(props) {
       >
 
 
-{props.topico && props.topico.subTopico.map((SubTopico, index) => (
+{props.topico && props.topico.subTopico.map((SubTopico:any, index:number) => (
           <div key={index+SubTopico.nomesubTopico}>
         <SwiperSlide>
             <img className='curiosidades img' src={props.topico.foto.imagem_grande.url} alt={"img"+props.topico.nomeTopico} />

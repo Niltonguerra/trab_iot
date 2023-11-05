@@ -7,7 +7,7 @@ export default function FormularioProduct() {
     const { control, handleSubmit } = useForm(); 
 
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (data:any) => {
 
         const formularioAPI:FormularioAPI = {
             nome:data.nome,

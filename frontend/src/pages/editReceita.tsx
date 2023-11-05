@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState,useEffect } from 'react';
 import {ModoDePreparo, Ingredientes, ReceitaAPI } from '../types/typesReceitas';
 import { useForm, Controller } from 'react-hook-form';
@@ -14,13 +13,15 @@ const EditReceita = () => {
   const { nomeDaReceitaEdit } = useParams();
   const { control, handleSubmit,setValue } = useForm(); // Usando a interface FormState
 
-  const [form, setForm] = useState<ModoDePreparo[]>([]); // Usando a interface FormElement
-  const [ingredientes, setIngredientes] = useState<Ingredientes[]>([]); // Usando a interface FormElement
+  // const [form, setForm] = useState<ModoDePreparo[]>([]); // Usando a interface FormElement
+  // const [ingredientes, setIngredientes] = useState<Ingredientes[]>([]); // Usando a interface FormElement
+
+  const [form, setForm] = useState<any[]>([]); // Usando a interface FormElement
+  const [ingredientes, setIngredientes] = useState<any[]>([]); // Usando a interface FormElement
 
 
 
-
-  const [dadoRecebidoDoBanco,setDadoRecebidoDoBanco] =  useState();
+  const [dadoRecebidoDoBanco,setDadoRecebidoDoBanco] =  useState<any>();
   const [funcaoExecutada, setFuncaoExecutada] = useState(false);
   const [confirCamposRenderizados,setConfirCamposRenderizados] = useState(false);
   
@@ -139,7 +140,10 @@ const EditReceita = () => {
 
     if (!funcaoExecutada) {
       // Coloque aqui o código que você deseja executar apenas uma vez
-      fetchData(nomeDaReceitaEdit);
+      if(nomeDaReceitaEdit){
+        fetchData(nomeDaReceitaEdit);
+      }
+      
     }
     else{
       criarCampos();
@@ -185,17 +189,31 @@ const EditReceita = () => {
 
 
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (data:any) => {
 
-      const fileInput = document.getElementById('imagem_receita');
-      const file = fileInput.files[0];
+      // const fileInput = document.getElementById('imagem_receita') as HTMLInputElement;
+      // const file = fileInput.files[0];
     
 
-      let imagem = await imgbbUmaImagem(file);
 
-      if(imagem === undefined) {
-        imagem = dadoRecebidoDoBanco?.foto;
+      const fileInput = document.getElementById('imagem_receita') as HTMLInputElement;
+      let imagem;
+
+      if (fileInput?.files && fileInput.files[0]) {
+        imagem = await imgbbUmaImagem(fileInput.files[0]);
+      } else if (dadoRecebidoDoBanco && dadoRecebidoDoBanco?.foto) {
+        imagem = dadoRecebidoDoBanco.foto;
       }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,18 +222,19 @@ const EditReceita = () => {
         const receitaData: ReceitaAPI = {
           nome: data.nomeDaReceita,
           tempoDePreparo: data.tempoDePreparo,
-          foto: imagem,
+          foto: imagem ?? '',
           ingredientes: ingredientes.map((item) => ({ nome: data[item.nome] })),
           modoDePreparo: form.map((item) => ({ passos: data[item.passos] })),
         };
-      
+
         // Agora você pode usar o objeto receitaData como desejar
-        
+
         const API = JSON.stringify(receitaData);
         // console.log(JSON.stringify(receitaData, null, 2));
 
-
-        editardadosReceitas(API,nomeDaReceitaEdit)
+        if (nomeDaReceitaEdit) {
+          editardadosReceitas(API, nomeDaReceitaEdit);
+        }
 
 
     };

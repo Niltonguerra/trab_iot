@@ -8,7 +8,7 @@ import {useState, useEffect } from "react";
 function DashboardReceitas(){
 
 
-    const [receitas, setReceitas] = useState([]);
+    const [receitas, setReceitas] = useState<any>([]);
 
 
     const fetchData = async () => {
@@ -95,7 +95,7 @@ const delAlimento = async (nome:string) => {
 
 
                         <tbody>
-                            {receitas.map((alimento) => (
+                            {receitas.map((alimento:any) => (
                                 <tr key={alimento._id}>
 
 

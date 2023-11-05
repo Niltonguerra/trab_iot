@@ -1,6 +1,6 @@
 import '../assets/css/tailwind/style.css';
 import { Link } from 'react-router-dom';
-import { fetchReceitasData } from "../API/receitas";
+// import { fetchReceitasData } from "../API/receitas";
 import  { fetchAlimentosData} from "../API/alimentos"
 import {useState, useEffect } from "react";
 
@@ -11,15 +11,15 @@ type CounterState = {
 function Home() {
 
 
-  const [receitas, setReceitas] = useState([]);
-  const [alimentos, setAlimentos] = useState([]);
+  // const [ receitas, setReceitas] = useState<any>([]);
+  const [alimentos, setAlimentos] = useState<any>([]);
   const [confirDadosChegaram,setConfirDadosChegaram] = useState(false);
 
 
   const fetchData = async () => {
       try {
-        const receitasData = await fetchReceitasData();
-        setReceitas(receitasData);
+        // const receitasData = await fetchReceitasData();
+        // setReceitas(receitasData);
 
         const alimentosData = await fetchAlimentosData();
         setAlimentos(alimentosData);
@@ -130,7 +130,7 @@ const handleClick = () =>{
 
       <div className='grid gap-10 mt-8 lg:grid-cols-3'>
         {/* cads go here */}
-        {alimentos.map((alimento,index) => (
+        {alimentos.map((alimento:any,index:number) => (
           <div key={index}>
           <Link to={`/product/${alimento.nome}`}>
             <div className='card'>

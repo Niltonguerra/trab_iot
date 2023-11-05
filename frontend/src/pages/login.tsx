@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 function Login() {
   // Função para lidar com o clique no botão de entrada
   const handleLogin = () => {
-    // Obtenha os valores dos campos de nome e senha
-    const nome = document.getElementById('nome').value;
-    const senha = document.getElementById('senha').value;
+
+
+    // Obtenha os valores dos campos de nome e senha 
+    const nome = (document.getElementById("nome") as HTMLInputElement)?.value;
+    const senha = (document.getElementById("senha") as HTMLInputElement)?.value;
+
 
     // Verifique se o nome e a senha são "admin"
     if (nome === "admin" && senha === "admin") {

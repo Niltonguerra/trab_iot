@@ -12,7 +12,7 @@ import '../../assets/css/main.css';
 // import required modules
 import { EffectCards } from 'swiper/modules';
 
-export default function CaroselReceitas(props) {
+export default function CaroselReceitas(props:any) {
   return (
     <div className='receitas'>
       <Swiper
@@ -59,7 +59,7 @@ export default function CaroselReceitas(props) {
                         
                     <br/>
                         ingredientes:<br/>
-                        {props.receita && props.receita.ingredientes.map((ingred, index) => (
+                        {props.receita && props.receita.ingredientes.map((ingred:any, index:number) => (
                           <div key={index+ingred.nome}>
                               {ingred.nome}<br/>
                           </div>
@@ -83,7 +83,7 @@ export default function CaroselReceitas(props) {
 {/* modo de preparo */}
 
 
-{props.receita && props.receita.modoDePreparo.map((passo, index) => (
+{props.receita && props.receita.modoDePreparo.map((passo:any, index:number) => (
   <div key={index+passo.passos}>
     <SwiperSlide>
         <div className='container'>

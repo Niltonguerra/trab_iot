@@ -9,13 +9,9 @@ import 'swiper/css/scrollbar';
 import '../../assets/css/main.css';
 
 
-// tipagem
-import {Curiosidade} from '../../types/typesReceitas'
-
 
 // import required modules
 import { Scrollbar,Autoplay } from 'swiper/modules';
-import { SubTopico } from '../../types/typesAlimentos';
 
 
 
@@ -26,7 +22,7 @@ import { SubTopico } from '../../types/typesAlimentos';
 
 
 
-const CaroselCuriosidades: React.FC<Curiosidade> = (props) => {
+const CaroselCuriosidades = (props:any) => {
   return (   
 
 
@@ -55,7 +51,7 @@ const CaroselCuriosidades: React.FC<Curiosidade> = (props) => {
         
 
 
-{props.topico && props.topico.subTopico.map((SubTopico, index) => (
+{props.topico && props.topico.subTopico.map((SubTopico:any, index:any) => (
 
   <div key={index+SubTopico.nomesubTopico}>
 

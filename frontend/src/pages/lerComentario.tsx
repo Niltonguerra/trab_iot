@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-import { fetchFormData, fetchFormRegistro } from '../API/formularioAPI';
-
+import { fetchFormRegistro } from '../API/formularioAPI';
+import { useEffect,useState } from 'react';
 
 const LerComentario = () => {
 
@@ -33,7 +33,7 @@ const LerComentario = () => {
 
     const { control, setValue } = useForm(); // Usando a interface FormState
 
-    const [form, setForm] = useState(); // Usando a interface FormElement
+    const [form, setForm] = useState<any>(); // Usando a interface FormElement
 
     const [dadoschegaram, setDadoschegaram] = useState(false); // Usando a interface FormElement
     
@@ -44,6 +44,7 @@ const LerComentario = () => {
 
     const registrarDados = () => {
 
+        if(idComentario !== undefined){
         fetchFormRegistro(idComentario)
         .then(data => {
             
@@ -58,7 +59,7 @@ const LerComentario = () => {
           // Lidar com erros
           console.error(error);
         });
-
+    }
 
 
         

@@ -1,6 +1,5 @@
-import React from 'react';
 import { useState,useEffect } from 'react';
-import { FormElement, SubTopico,FormPostAPITopico,FormPostAPISubTopico,FormPostDataOnSubmit } from '../types/types';
+import { FormElement, SubTopico,FormPostAPITopico,FormPostAPISubTopico,FormPostDataOnSubmit } from '../types/typesAlimentos';
 import { useForm, Controller } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { criarPostAlimento } from '../API/alimentos';
@@ -12,9 +11,11 @@ const CriarPost = () => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  const { control, handleSubmit } = useForm(); // Usando a interface FormState
+  const { control, handleSubmit } = useForm<any>(); // Usando a interface FormState
 
-  const [form, setForm] = useState<FormElement[]>([]); // Usando a interface FormElement
+  // const [form, setForm] = useState<FormElement[]>([]); // Usando a interface FormElement
+
+  const [form, setForm] = useState<any[]>([]); // Usando a interface FormElement
 
   const [verifica,setVerifica] = useState( false);
   // inicia os campos das categorias do formulario
@@ -30,23 +31,26 @@ const CriarPost = () => {
 const [transformJson, setTransformJson] = useState<FormPostAPITopico>({});
 
 
-const onSubmit = async (data: FormPostDataOnSubmit) => {
+const onSubmit = async (data: any) => {
   const updatedTransformJson = { ...transformJson };
 
   // Crie um array de promessas
   const promises = form.map(async (item:FormElement, index:number) => {
     const subTopicos: FormPostAPISubTopico = {};
 
-    item.subCampos?.forEach((subcampo: SubTopico, subindex:number) => {
+    item.subCampos?.forEach((subcampo: any, subindex:number) => {
+      
       subTopicos[subindex] = {
         idSubTopico: subindex,
-        nomesubTopico: data[form[index]?.subCampos[subindex].subTituloForm],
-        descricaosubTopico: data[form[index]?.subCampos[subindex].SubDescricaoForm],
+        nomesubTopico: data[form[index]!.subCampos![subindex]!.subTituloForm] ,
+        descricaosubTopico: data[form[index]!.subCampos![subindex]!.SubDescricaoForm],
       };
+
+      subcampo = subcampo+subcampo
     });
 
 
-    const fileInput = document.getElementById(form[index].imagemForm) as HTMLInputElement | null;
+    const fileInput = document.getElementById(form[index]?.imagemForm) as HTMLInputElement | null;
     const file = fileInput?.files ? fileInput.files[0] : null;
 
 
@@ -83,7 +87,7 @@ const onSubmit = async (data: FormPostDataOnSubmit) => {
     tipoDoAlimento: data.tipoDoAlimento,
     nomeCientifico: data.nomeCientifico,
     descricaoVegetal: data.descricaoVegetal,
-    id_topico: updatedTransformJson,
+    id_topico: Object.values(updatedTransformJson),
   };
 
   const API = JSON.stringify(APIForm);
@@ -427,9 +431,7 @@ const excluirSubcampo = (elementIndex:number, subcampoIndex:number) => {
                 <div className='campo'>
                   <label  className='textCategoriaTitulo' >Subtítulo:</label>
                   <Controller
-
-
-                    name={item.subCampos[subindex].subTituloForm}
+                    name={subcampo.subTituloForm || ''}
 
 
                     control={control}

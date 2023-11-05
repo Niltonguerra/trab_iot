@@ -82,20 +82,20 @@ const delForm = async (id:string) => {
 
 
                         <tbody>
-                            {alimentos.map((formulario) => (
+                            {alimentos.map((formulario:any) => (
                                 <tr key={formulario._id}>
 
 
-                                    <td>{formulario.titulo}</td>
+                                    <td>{formulario?.titulo}</td>
 
                                     <td>
-                                        <Link to={`/lerComentario/${formulario._id}`}>
+                                        <Link to={`/lerComentario/${formulario?._id}`}>
                                         <img className="icon" src="/images/reader-outline.svg" alt="icon_read" />
                                         </Link>
                                     </td>
 
                                     <td>
-                                        <p className="btnDeletaRegistro" onClick={() => delForm(formulario._id)
+                                        <p className="btnDeletaRegistro" onClick={() => delForm(formulario?._id)
                                                                                 }>
                                         <img className="icon" src="/images/delete.svg" alt="icon_delete" />
                                         </p>

@@ -1,8 +1,11 @@
 import axios from 'axios';
+import { BACKEND_URL } from './env'; 
+
+
 
 
 export async function  fetchCriarForm(API:string) {
-    fetch('http://localhost:3000/formulario', {
+    fetch(`${BACKEND_URL}formulario`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
@@ -29,7 +32,7 @@ export async function  fetchCriarForm(API:string) {
 // trás todas as informações de todos os registros do banco de dados do banco de dados
 export async function fetchFormData() {
     try {
-      const response = await fetch("http://localhost:3000/formulario");
+      const response = await fetch(`${BACKEND_URL}formulario`);
       if (response.ok) {
         const data = await response.json();
         return data;
@@ -47,7 +50,7 @@ export async function fetchFormData() {
   export async function  fetchDeletarForm(id:string) {
   
     try {
-        await axios.delete(`http://localhost:3000/formulario/deletarPorNome/${id}`); 
+        await axios.delete(`${BACKEND_URL}formulario/deletarPorNome/${id}`); 
 
 
       } catch (error) {
@@ -60,7 +63,7 @@ export async function fetchFormData() {
   // trás todas as informações de um registro por id
   export function fetchFormRegistro(id:string) {
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:3000/formulario/${id}`)
+      fetch(`${BACKEND_URL}formulario/${id}`)
         .then(response => {
           if (response.ok) {
             return response.json();

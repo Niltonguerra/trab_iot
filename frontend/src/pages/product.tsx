@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 // import '../assets/css/main.css';
 // import '../assets/css/noscript.css';
 import CaroselCuriosidades from "../components/caroseis/carosel-curiosidades";
@@ -25,8 +25,8 @@ import { useParams } from 'react-router-dom';
 
 function Product() {
 
-	const [receitas, setReceitas] = useState([]);
-	const [alimento, setAlimento] = useState([]);
+	const [receitas, setReceitas] = useState<any>([]);
+	const [alimento, setAlimento] = useState<any>([]);
 
 	const { nomeAlimento } = useParams();
 
@@ -35,27 +35,39 @@ function Product() {
 
 		
 // busca dados da receita
-		fetchBuscaIngredientes(nomeAlimento)
-		.then(data => {
-			// Lidar com os dados
-			setReceitas(data);
-		  })
-		  .catch(error => {
-			// Lidar com erros
-			console.error("Erro ao buscar ingredientes das receitas para renderizar as receitas:", error);
-		  });
+		if(nomeAlimento){
+			fetchBuscaIngredientes(nomeAlimento)
+			.then((data: any) => {
+				// Lidar com os dados
+				setReceitas(data);
+				// console.log(data)
+			})
+			.catch(error => {
+				// Lidar com erros
+				console.error("Erro ao buscar ingredientes das receitas para renderizar as receitas:", error);
+			});
 
-
-
-// busca dados dos alimentos
-		fetchAlimentosRegistro(nomeAlimento)
-			.then(data => {
-			setAlimento(data);
+			
+			// busca dados dos alimentos
+			fetchAlimentosRegistro(nomeAlimento)
+			.then((data: any) => {
+				setAlimento(data);
+				// console.log(data.nome)
 			})
 			.catch(error => {
 				console.error(error);
 			});
-		};
+		}
+
+
+
+
+		}
+		
+		
+
+
+
 	
 
 
@@ -63,7 +75,7 @@ function Product() {
 			
 			fetchData(); // Chame a função assíncrona para buscar os dados
 		
-
+			
 		
 		}, []);
 	
@@ -100,21 +112,34 @@ return (
 
 					<li><a href='#topicos'>Tópicos do Alimento</a></li>
 
-					{alimento && alimento.id_topico && alimento.id_topico.map((topico, index) => (
-						<div key={index}>
-									<li><a href={'#'+topico.nomeTopico}>{topico.nomeTopico}</a></li> 
-						</div>
-					))} 
-					<br />
+					
+					{alimento !== undefined && alimento.id_topico !== undefined  ? (
 
+					<div>
+
+						{alimento.id_topico.map((topico:any, index:number) => (
+							<div key={index}>
+										<li><a href={'#'+topico.nomeTopico}>{topico.nomeTopico}</a></li> 
+							</div>
+						))} 
+						<br />
+
+					</div>
+					): null
+					}
 					<li><a href='#receitas'>Receitas com o Alimento</a></li>
 
-					{receitas && receitas.map((receita, index) => (
-							<div key={index}>
-						<li><a href={'#'+receita.nome}>{receita.nome}</a></li> 
-					</div>
-					))} 
 
+					{receitas !== undefined  ? (
+						<div>
+							{receitas && receitas.map((receita:any, index:number) => (
+									<div key={index}>
+								<li><a href={'#'+receita?.nome}>{receita?.nome}</a></li> 
+							</div>
+							))}  
+						</div>
+					): null
+					}
 					<li><a href="#formulario">formulário</a></li> 
 
 				</ul>
@@ -130,45 +155,56 @@ return (
 
 
 	<div id="topicos" ></div>
-	{alimento && alimento.id_topico && alimento.id_topico.map((topico, index) => (
-			<div key={index}>
 
-			{index % 3 === 0 ? (
-				<section id={topico.nomeTopico} className="wrapper style1 fullscreen fade-up">
-					<div className="inner">
-					<CaroselCuriosidades topico={topico} />
-					</div>
-				</section>
-			) : null} 
+{alimento !== undefined && alimento.id_topico !== undefined  ? (
 
-			{index % 3 === 1 ? (
-				// <!-- One --> 
-				<section id={topico.nomeTopico} className="wrapper style2 spotlights">
-					<div className="inner">
-						<CaroselBeneficios topico={topico}/>
-					</div>
-				</section>
-			) : null}
+	<div>
+		{alimento && alimento.id_topico.map((topico:any, index:number) => (
+				<div key={index}>
 
+					{index % 3 === 0 ? (
+					<section id={topico.nomeTopico} className="wrapper style1 fullscreen fade-up">
+						<div className="inner">
+						<CaroselCuriosidades topico={topico} />
+						</div>
+					</section>
+				) : null} 
 
-			{index % 3 === 2 ? (
-				<section id={topico.nomeTopico} className="wrapper style3 fade-up">
-					<div className="inner">
-						<CaroselHistoria topico={topico}/>
-					</div>
-				</section>
-			) : null} 
-
-		</div>
-	))} 
+				{index % 3 === 1 ? (
+					// <!-- One --> 
+					<section id={topico.nomeTopico} className="wrapper style2 spotlights">
+						<div className="inner">
+							<CaroselBeneficios topico={topico}/>
+						</div>
+					</section>
+				) : null}
 
 
-	{/* receitas  */}
+				{index % 3 === 2 ? (
+					<section id={topico.nomeTopico} className="wrapper style3 fade-up">
+						<div className="inner">
+							<CaroselHistoria topico={topico}/>
+						</div>
+					</section>
+				) : null}  
+
+			</div>
+		))}  
+
+	</div>)
+
+	: null
+}
+
+	
 
 
-		{receitas && receitas.map((receita, index) => (
+{receitas !== undefined  ? (
+
+	<div>
+		{receitas && receitas.map((receita:any, index:number) => (
 		<div key={index}>
-			<section id={receita.nome} className="wrapper style1 fade-up"><br /><br /><br /><br /><br /><br />
+			<section id={receita?.nome} className="wrapper style1 fade-up"><br /><br /><br /><br /><br /><br />
 			
 			{index === 0 ? (
 				<div id="receitas" ><h2 className='tituloReceita'>Receitas</h2></div>
@@ -177,8 +213,11 @@ return (
 				<CaroselReceitas receita={receita}/>
 			</section>
 		</div>
-	))} 
+	))}  
+	</div>)
 
+	: null
+}
 
 
 
@@ -186,6 +225,7 @@ return (
 	{/* formulario  */}
 	<section id="formulario" className="wrapper style1 fade-up">
 		<div className="inner">
+		
 			<FormularioProduct/>
 		</div>
 	</section>
