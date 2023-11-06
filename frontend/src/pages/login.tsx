@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+
+
 
 function Login() {
+
+
+
+  const navegate = useNavigate();
+
+
   // Função para lidar com o clique no botão de entrada
   const handleLogin = () => {
 
@@ -13,7 +21,7 @@ function Login() {
     // Verifique se o nome e a senha são "admin"
     if (nome === "admin" && senha === "admin") {
       // Redirecione o usuário para a página desejada
-      window.location.href = "/dashboardPost"; // Altere para a URL correta
+      navegate("/dashboardPost"); // Altere para a URL correta
     } else {
       // Exiba uma mensagem de erro se o login for inválido
       alert("Nome de usuário ou senha incorretos.");
@@ -53,7 +61,7 @@ function Login() {
           <button className="botao" id="btn" 
           onClick={handleLogin}
           >
-            {/* Entrar */}
+            Entrar
             {/* <Link to={`/dashboardPost`}>
           Logar-se
           </Link> */}
