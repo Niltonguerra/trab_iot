@@ -62,9 +62,6 @@ function Login() {
           onClick={handleLogin}
           >
             Entrar
-            {/* <Link to={`/dashboardPost`}>
-          Logar-se
-          </Link> */}
           </button>
           
         </div>
