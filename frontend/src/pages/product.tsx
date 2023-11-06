@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-// import '../assets/css/main.css';
+import '../assets/css/main.css';
 // import '../assets/css/noscript.css';
 import CaroselCuriosidades from "../components/caroseis/carosel-curiosidades";
 import CaroselBeneficios from "../components/caroseis/carosel-beneficios";
@@ -29,6 +29,10 @@ function Product() {
 	const [alimento, setAlimento] = useState<any>([]);
 
 	const { nomeAlimento } = useParams();
+
+
+
+
 
 	const fetchData = async () => {
 
@@ -66,17 +70,9 @@ function Product() {
 		
 		
 
-
-
-	
-
-
 		useEffect(() => {
-			
-			fetchData(); // Chame a função assíncrona para buscar os dados
-		
-			
-		
+			// Chame a função assíncrona para buscar os dados
+			fetchData(); 
 		}, []);
 	
 
@@ -86,11 +82,16 @@ function Product() {
 
 
 
+	const [display, setDisplay] = useState('none');
 
+	const toggleColor = () => {
+		if(display === "none"){
+			setDisplay("block");
+		}else{
+			setDisplay("none");
+		}
 
-
-
-
+	}
 
 
 
@@ -103,17 +104,65 @@ return (
     <>
 
 
+
 {/* <!-- Sidebar --> */}
-		
+
+		<div className='MenuDinamico'>
+        <button className="btn-retrai" onClick={toggleColor}>
+			&#9776; Menu
+        </button>
+        <ul className="menu" style={{ display: display}}>
+
+			<li className='elementoMenu'><a className='link' href='#topicos'>Tópicos do Alimento</a></li>
+
+
+			
+			{alimento !== undefined && alimento.id_topico !== undefined  ? (
+				<div>
+					{alimento.id_topico.map((topico:any, index:number) => (
+						<div key={index}>
+									<li className='elementoMenu'><a className='link' href={'#'+topico.nomeTopico}>{topico.nomeTopico}</a></li> 
+						</div>
+					))} 
+					
+
+				</div>
+			): null
+			}
+
+
+			<li className='elementoMenu'><a className='link' href='#receitas'>Receitas com essa hortaliça</a></li>
+
+			{receitas !== undefined  ? (
+				<div>
+					{receitas && receitas.map((receita:any, index:number) => (
+							<div key={index}>
+						<li className='elementoMenu'><a className='link' href={'#'+receita?.nome}>{receita?.nome}</a></li> 
+					</div>
+					))}  
+				</div>
+			): null
+			} 
+			<li className='elementoMenu'><a className='link' href="#formulario">formulário</a></li> 
+
+        </ul>
+
+		</div>
+
+
+
+
+
 	<section id="sidebar">
+
 		<div className=" inner ">
 			<nav>
+
 				<ul>
 
 					<li><a href='#topicos'>Tópicos do Alimento</a></li>
-
 					
-					{alimento !== undefined && alimento.id_topico !== undefined  ? (
+						{alimento !== undefined && alimento.id_topico !== undefined  ? (
 
 					<div>
 
@@ -134,12 +183,12 @@ return (
 						<div>
 							{receitas && receitas.map((receita:any, index:number) => (
 									<div key={index}>
-								<li><a href={'#'+receita?.nome}>{receita?.nome}</a></li> 
+								<li ><a href={'#'+receita?.nome}>{receita?.nome}</a></li> 
 							</div>
 							))}  
 						</div>
 					): null
-					}
+					} 
 					<li><a href="#formulario">formulário</a></li> 
 
 				</ul>
@@ -217,7 +266,7 @@ return (
 	</div>)
 
 	: null
-}
+} 
 
 
 

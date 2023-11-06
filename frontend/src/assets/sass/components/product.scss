@@ -4,5 +4,93 @@
     font-weight: 100;
     
 }
-    
-    
+
+
+/* Estilos para o botão de menu em telas pequenas */
+.btn-retrai {
+  display: none;
+}
+
+/* Estilos para ocultar o menu principal em telas pequenas e alinhar os itens verticalmente */
+// @media screen and (max-width: 768px) {
+  @include breakpoint('<=large'){
+  
+  .MenuDinamico{
+    background-color: _palette(bg);
+    display: flex;
+    flex-direction: column;
+
+
+    .btn-retrai {
+
+      display: block;
+      // text-align: right;
+      float: right;
+      margin: 20px;
+      
+
+      
+  
+      // &:focus{
+      //   background-color: #fff;
+
+      //   +.menu{
+      //     display: block;
+  
+          
+      //   }
+
+
+      // }
+      
+
+  
+      
+    }
+  
+    .menu {
+      display: none;
+      text-align: center;
+      
+      background-color: _palette(bg);
+      
+      margin: 0; /* Remove margens padrão */
+      padding: 0; /* Remove paddings padrão */
+
+
+
+
+
+      .elementoMenu {
+  
+        background-color: _palette(bg);
+        padding: 15px;
+      
+        margin: 0; /* Remove margens padrão */
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color .6s ease;
+        border-radius: 15px;
+
+        .link{
+          border: none;
+          text-decoration: none;
+          
+        }
+
+        &:hover{
+          
+          background-color: darken(_palette(bg), 5%);
+          transition: background-color .6s ease;
+        }
+        
+        
+      }
+      
+      
+    }
+
+  }
+
+}
