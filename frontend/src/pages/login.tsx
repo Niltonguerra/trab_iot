@@ -55,7 +55,7 @@ function Login() {
           >
             {/* Entrar */}
             <Link to={`/dashboardPost`}>
-          entrar
+          Logar-se
           </Link>
           </button>
           
