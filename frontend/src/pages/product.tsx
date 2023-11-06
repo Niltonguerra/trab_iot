@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import '../assets/css/main.css';
+// import '../assets/css/main.css';
 // import '../assets/css/noscript.css';
 import CaroselCuriosidades from "../components/caroseis/carosel-curiosidades";
 import CaroselBeneficios from "../components/caroseis/carosel-beneficios";
@@ -96,7 +96,32 @@ function Product() {
 
 
 
+	const [scrolling, setScrolling] = useState(false);
 
+	useEffect(() => {
+		let lastScrollTop = 0;
+		
+		const handleScroll = () => {
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			setScrolling(scrollTop < lastScrollTop);
+			lastScrollTop = scrollTop;
+
+
+			if(display === "block"){
+				toggleColor();
+			}
+			
+		};
+	
+		window.addEventListener("scroll", handleScroll);
+	
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+	
+	
+	
 
 
 
@@ -105,16 +130,17 @@ return (
 
 
 
-{/* <!-- Sidebar --> */}
+{/* <!-- Menu dinamico --> */}
 
-		<div className='MenuDinamico'>
+		<div className={`MenuDinamico ${scrolling  ? "hidden" : "show"}`}>
         <button className="btn-retrai" onClick={toggleColor}>
 			&#9776; Menu
         </button>
         <ul className="menu" style={{ display: display}}>
 
+			<div>
 			<li className='elementoMenu'><a className='link' href='#topicos'>Tópicos do Alimento</a></li>
-
+			</div>
 
 			
 			{alimento !== undefined && alimento.id_topico !== undefined  ? (
@@ -130,8 +156,9 @@ return (
 			): null
 			}
 
-
+			<div>
 			<li className='elementoMenu'><a className='link' href='#receitas'>Receitas com essa hortaliça</a></li>
+			</div>
 
 			{receitas !== undefined  ? (
 				<div>
@@ -143,8 +170,10 @@ return (
 				</div>
 			): null
 			} 
-			<li className='elementoMenu'><a className='link' href="#formulario">formulário</a></li> 
 
+			<div>
+			<li className='elementoMenu'><a className='link' href="#formulario">formulário</a></li> 
+			</div>
         </ul>
 
 		</div>
@@ -153,6 +182,25 @@ return (
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* menu lateral */}
 	<section id="sidebar">
 
 		<div className=" inner ">

@@ -15,10 +15,36 @@
 // @media screen and (max-width: 768px) {
   @include breakpoint('<=large'){
   
+
+    .hidden {
+      
+      position: fixed;
+      transform: translateY(100%); /* Começa com o menu traduzido para cima */
+      opacity: 0;
+    }
+
+    .show{
+      display: none;
+
+
+    }
   .MenuDinamico{
-    background-color: _palette(bg);
+
+    background-color: rgba(_palette(bg), 0.8);
     display: flex;
     flex-direction: column;
+     /* Isso faz com que o menu fique fixo na tela */
+    top: 0; /* Define a posição superior para ficar no topo da página */
+    left: 0; /* Define a posição esquerda para ficar no início da página */
+    width: 100%; /* Define a largura total para cobrir toda a largura da tela */
+    padding: 10px; /* Adicione preenchimento para melhor aparência */
+    z-index: 1000;
+
+    transform: translateY(0%); /* Começa com o menu traduzido para cima */
+      opacity: 1;
+
+
+
 
 
     .btn-retrai {
@@ -26,7 +52,9 @@
       display: block;
       // text-align: right;
       float: right;
-      margin: 20px;
+
+      margin-top: 20px;
+      margin-bottom: 20px;
       
 
       
@@ -51,28 +79,28 @@
     .menu {
       display: none;
       text-align: center;
-      
-      background-color: _palette(bg);
+      // background-color: rgba(var(_palette(bg)), 0.5);
       
       margin: 0; /* Remove margens padrão */
       padding: 0; /* Remove paddings padrão */
 
-
+      overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+      height: 50vh;
 
 
 
       .elementoMenu {
-  
-        background-color: _palette(bg);
+        background-color: rgba(0,0,0, 0.1);
+        
+        // background-color: _palette(bg);
+        
         padding: 15px;
-      
-        margin: 0; /* Remove margens padrão */
         height: 100%;
         width: 100%;
         cursor: pointer;
         transition: background-color .6s ease;
         border-radius: 15px;
-
+        margin-bottom:8px;
         .link{
           border: none;
           text-decoration: none;
@@ -83,6 +111,7 @@
           
           background-color: darken(_palette(bg), 5%);
           transition: background-color .6s ease;
+          color: _palette(bg-alt)
         }
         
         
