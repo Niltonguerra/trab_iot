@@ -50,9 +50,15 @@ function Login() {
 
         <div>
           {/* Adicione um evento onClick no botão para chamar a função handleLogin */}
-          <button className="botao" id="btn" onClick={handleLogin}>
-            Entrar
+          <button className="botao" id="btn" 
+          // onClick={handleLogin}
+          >
+            {/* Entrar */}
+            <Link to={`/dashboardPost`}>
+          entrar
+          </Link>
           </button>
+          
         </div>
       </div>
     </div>
