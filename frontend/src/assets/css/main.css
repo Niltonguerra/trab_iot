@@ -3262,6 +3262,7 @@ body.is-ie .wrapper.fullscreen {
 /* Estilos para o botão de menu em telas pequenas */
 .btn-retrai {
   display: none;
+  width: 90vw;
 }
 
 /* Estilos para ocultar o menu principal em telas pequenas e alinhar os itens verticalmente */
@@ -3281,7 +3282,7 @@ body.is-ie .wrapper.fullscreen {
     /* Isso faz com que o menu fique fixo na tela */
     top: 0; /* Define a posição superior para ficar no topo da página */
     left: 0; /* Define a posição esquerda para ficar no início da página */
-    width: 100%; /* Define a largura total para cobrir toda a largura da tela */
+    width: 100vw; /* Define a largura total para cobrir toda a largura da tela */
     padding: 10px; /* Adicione preenchimento para melhor aparência */
     z-index: 1000;
     transform: translateY(0%); /* Começa com o menu traduzido para cima */
