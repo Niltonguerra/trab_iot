@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import  {fetchAlimentosRegistro,editardadosAlimento} from "../API/alimentos"
 import { useParams } from 'react-router-dom';
 import { imgbbUmaImagem } from '../API/imgbb';
+import Swal from 'sweetalert2';
 
 
 
@@ -371,7 +372,19 @@ const registrarDados = () => {
 // console.log(data[form[0]?.tituloForm]);
       if (nomeDoAlimentoEdit) {
         editardadosAlimento(API, nomeDoAlimentoEdit);
+
+
+        Swal.fire({
+          icon: "success",
+          title: "Editado com sucesso! ",
+          showConfirmButton: false,
+          timer: 5000
+      });
       }
+
+      
+
+
     };
     
     

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import  {deletarDadoAlimento, fetchAlimentosNome} from "../API/alimentos"
 import {useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 
 
 
@@ -30,6 +31,13 @@ function DashboardPost(){
 const delAlimento = async (nome:string) => {
     await deletarDadoAlimento(nome);
     fetchData();
+    
+    Swal.fire({
+        icon: "success",
+        title: "Excluido com sucesso! ",
+        showConfirmButton: false,
+        timer: 5000
+    });
 } 
    
 

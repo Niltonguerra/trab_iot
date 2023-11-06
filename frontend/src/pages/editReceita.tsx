@@ -5,6 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { editardadosReceitas, fetchReceitasRegistro } from '../API/receitas';
 import { useParams } from 'react-router-dom';
 import { imgbbUmaImagem } from '../API/imgbb';
+import Swal from 'sweetalert2';
+
+
+
 
 const EditReceita = () => {
 
@@ -234,6 +238,14 @@ const EditReceita = () => {
 
         if (nomeDaReceitaEdit) {
           editardadosReceitas(API, nomeDaReceitaEdit);
+
+          
+          Swal.fire({
+            icon: "success",
+            title: "Editado com sucesso! ",
+            showConfirmButton: false,
+            timer: 5000
+        });
         }
 
 

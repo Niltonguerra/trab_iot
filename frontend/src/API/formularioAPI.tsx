@@ -3,30 +3,26 @@ import { BACKEND_URL } from './env';
 
 
 
+export function fetchCriarForm(API: string): Promise<any> {
+  return fetch(`${BACKEND_URL}formulario`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
+    },
+    body: API, // Converte o objeto API em JSON
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Erro na solicitação'); // Trate erros de resposta aqui
+      }
 
-export async function  fetchCriarForm(API:string) {
-    fetch(`${BACKEND_URL}formulario`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
-      },
-      body: API, // Converte o objeto API em JSON
+      return response; // Converte a resposta em JSON
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Erro na solicitação'); // Trate erros de resposta aqui
-        }
-        return response.json(); // Converte a resposta em JSON
-      })
-      .then((data) => {
-        console.log(data); // Faça algo com os dados
-      })
-      .catch((error) => {
-        console.log(error); // Trate erros aqui
-      });
-  }
-  
-
+    .then((data) => {
+      console.log(data); // Faça algo com os dados
+      return data.status; // Retorne os dados da promessa
+    });
+}
 
 
 // trás todas as informações de todos os registros do banco de dados do banco de dados

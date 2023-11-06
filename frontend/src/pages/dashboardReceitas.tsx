@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { deletarDadoReceita, fetchReceitasNome } from "../API/receitas";
 import {useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 
 
 
@@ -32,6 +33,13 @@ function DashboardReceitas(){
 const delAlimento = async (nome:string) => {
     await deletarDadoReceita(nome);
     fetchData();
+
+    Swal.fire({
+        icon: "success",
+        title: "Excluido com sucesso! ",
+        showConfirmButton: false,
+        timer: 5000
+    });
 } 
    
 

@@ -1,6 +1,8 @@
 import { useForm, Controller } from 'react-hook-form';
 import { fetchCriarForm } from '../API/formularioAPI';
 import { FormularioAPI } from '../types/typesFormulario';
+import Swal from 'sweetalert2';
+
 
 export default function FormularioProduct() {
 
@@ -19,8 +21,34 @@ export default function FormularioProduct() {
         const api = JSON.stringify(formularioAPI)
         
         fetchCriarForm(api)
+        .then((data) => {
 
-
+            if(data === 201){
+                Swal.fire({
+                    icon: "success",
+                    title: "Muito obrigado pelo seu comentário! ",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    title: "infelizmente não foi possivel enviar seu comentário, tente novamente mais tarde!",
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            
+            Swal.fire({
+                icon: "error",
+                title: "infelizmente não foi possivel enviar seu comentário, tente novamente mais tarde!",
+                showConfirmButton: false,
+                timer: 5000
+            });
+        });
     }
 
 

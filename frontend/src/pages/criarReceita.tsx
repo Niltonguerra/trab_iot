@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { criarPostReceita } from '../API/receitas';
 import { imgbbUmaImagem } from '../API/imgbb';
+import Swal from 'sweetalert2';
 
 
 
@@ -84,6 +85,13 @@ const onSubmit = async (data:any) => {
 
     criarPostReceita(API);
 
+    
+    Swal.fire({
+      icon: "success",
+      title: "Cadastrado com sucesso! ",
+      showConfirmButton: false,
+      timer: 5000
+  });
 
 
   } catch (error) {

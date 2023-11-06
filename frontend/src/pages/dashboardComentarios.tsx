@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import {useState, useEffect } from "react";
 import { fetchFormData,fetchDeletarForm } from "../API/formularioAPI";
+import Swal from 'sweetalert2';
 
 
 
@@ -30,6 +31,13 @@ function DashboardComentarios(){
 const delForm = async (id:string) => {
     await fetchDeletarForm(id);
     fetchData();
+
+    Swal.fire({
+        icon: "success",
+        title: "Excluido com sucesso! ",
+        showConfirmButton: false,
+        timer: 5000
+    });
 } 
    
 
