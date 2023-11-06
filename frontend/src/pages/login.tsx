@@ -2,23 +2,23 @@ import { Link } from "react-router-dom";
 
 function Login() {
   // Função para lidar com o clique no botão de entrada
-  const handleLogin = () => {
+  // const handleLogin = () => {
 
 
-    // Obtenha os valores dos campos de nome e senha 
-    const nome = (document.getElementById("nome") as HTMLInputElement)?.value;
-    const senha = (document.getElementById("senha") as HTMLInputElement)?.value;
+  //   // Obtenha os valores dos campos de nome e senha 
+  //   const nome = (document.getElementById("nome") as HTMLInputElement)?.value;
+  //   const senha = (document.getElementById("senha") as HTMLInputElement)?.value;
 
 
-    // Verifique se o nome e a senha são "admin"
-    if (nome === "admin" && senha === "admin") {
-      // Redirecione o usuário para a página desejada
-      window.location.href = "/dashboardPost"; // Altere para a URL correta
-    } else {
-      // Exiba uma mensagem de erro se o login for inválido
-      alert("Nome de usuário ou senha incorretos.");
-    }
-  };
+  //   // Verifique se o nome e a senha são "admin"
+  //   if (nome === "admin" && senha === "admin") {
+  //     // Redirecione o usuário para a página desejada
+  //     window.location.href = "/dashboardPost"; // Altere para a URL correta
+  //   } else {
+  //     // Exiba uma mensagem de erro se o login for inválido
+  //     alert("Nome de usuário ou senha incorretos.");
+  //   }
+  // };
 
   return (
 
