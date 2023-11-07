@@ -2,6 +2,7 @@ import axios from 'axios';
 import { BACKEND_URL } from './env'; 
 
 
+// chamada de api para criar um registro
 
 export function fetchCriarForm(API: string): Promise<any> {
   return fetch(`${BACKEND_URL}formulario`, {
@@ -25,6 +26,8 @@ export function fetchCriarForm(API: string): Promise<any> {
 }
 
 
+
+
 // trás todas as informações de todos os registros do banco de dados do banco de dados
 export async function fetchFormData() {
     try {
@@ -43,10 +46,12 @@ export async function fetchFormData() {
     
 
 
+
+// deleta um registro do Banco de dados
   export async function  fetchDeletarForm(id:string) {
   
     try {
-        await axios.delete(`${BACKEND_URL}formulario/deletarPorNome/${id}`); 
+        await axios.delete(`${BACKEND_URL}formulario/deletarPorId/${id}`); 
 
 
       } catch (error) {
