@@ -38,20 +38,50 @@ try {
 
 
 // trás todas as informasções de apenas um registro no banco de dados
-export async function fetchReceitasRegistro(nome: string) {
-try {
-  const response = await fetch(`${BACKEND_URL}receitas/${nome}`);
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  } else {
-    console.error("Erro ao buscar dados. Status:", response.status);
-  }
-} catch (error) {
-  console.error("Erro ao buscar dados:", error);
+export function fetchReceitasRegistro(nome: string): Promise<any> {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${BACKEND_URL}receitas/${nome}`);
+
+      if (response.ok) {
+        const data = await response.json();
+        resolve(data);
+      } else {
+        console.error("Erro ao buscar dados. Status:", response.status);
+        reject(`Erro ao buscar dados. Status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+      reject(`Erro ao buscar dados: ${error}`);
+    }
+  });
 }
 
-}
+
+
+// export function fetchReceitasRegistro(nome: string) {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${BACKEND_URL}receitas/${nome}`)
+//       .then(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           console.error("Erro ao buscar dados. Status:", response.status);
+//           reject("Erro ao buscar dados. Status: " + response.status);
+//         }
+//       })
+//       .then(data => {
+//         resolve(data);
+//       })
+//       .catch(error => {
+//         console.error("Erro ao buscar dados:", error);
+//         reject("Erro ao buscar dados: " + error.message);
+//       });
+//   });
+// }
+
+
+
 
 
 

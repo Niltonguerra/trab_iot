@@ -16,6 +16,7 @@ import DashboardReceitas from './pages/dashboardReceitas';
 import DashboardComentarios from './pages/dashboardComentarios';
 import LerComentario from './pages/lerComentario';
 import Search from './pages/search';
+import ProductReceita from './pages/productReceita';
 
 // comandos importantes:
 
@@ -30,7 +31,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
         {/* <Route path="/product/:id" element={<Product/>}></Route> */}
         <Route path="/product/:nomeAlimento" element={<Product/>}></Route>  
-         
+        <Route path="/Receita/:nomeReceita" element={<ProductReceita/>}></Route> 
+
         <Route path="/login" element={<Login/>}></Route>  
         <Route path="/criarPost" element={<CriarPost/>}></Route> 
         <Route path="/criarReceita" element={<CriarReceita/>}></Route> 

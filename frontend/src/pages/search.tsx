@@ -154,7 +154,7 @@ return (
     <div className='grid gap-10 mt-8 lg:grid-cols-3'>
     {receitas.map((receita:any,index:number) => (
         <div key={index}>
-        <Link to="/product">
+        <Link to={`/Receita/${receita.nome}`}>
         <div className='card'>
             <img src={receita.foto.imagem_media.url} className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
             <div className='m-4'>
