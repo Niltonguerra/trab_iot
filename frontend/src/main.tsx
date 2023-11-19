@@ -15,7 +15,7 @@ import EditReceita from './pages/editReceita';
 import DashboardReceitas from './pages/dashboardReceitas';
 import DashboardComentarios from './pages/dashboardComentarios';
 import LerComentario from './pages/lerComentario';
-
+import Search from './pages/search';
 
 // comandos importantes:
 
@@ -40,8 +40,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/esqueciMinhaSenha" element={<EsqueciMinhaSenha/>}></Route>
         <Route path="/dashboardPost" element={<DashboardPost/>}></Route>
         <Route path="/dashboardReceitas" element={<DashboardReceitas/>}></Route>
-        <Route path="//dashboardComentarios" element={<DashboardComentarios/>}></Route>
-
+        <Route path="/dashboardComentarios" element={<DashboardComentarios/>}></Route>
+        <Route path="/search" element={<Search/>}></Route>
         {/* tratamento para página que não existe */}
         <Route path='*' element={<NotFound/>}/>
 

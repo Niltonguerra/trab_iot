@@ -82,10 +82,12 @@ const EditReceita = () => {
 
   for (let index = 0; index < ingred.length; index++) {
 
-    const novoTituloName = `ingrediente-${uuidv4()}`;
-    
+    const novoIngredienteNome = `ingredienteNome-${uuidv4()}`;
+    const novoingredienteQuant = `ingredienteQuantidade-${uuidv4()}`;
+
     const novoElemento:Ingredientes = {
-      nome: novoTituloName,
+      nome: novoIngredienteNome,
+      quantidade: novoingredienteQuant,
     };
     // Adicione o elemento com subcampos ao array temporário
     ingredArray.push(novoElemento);
@@ -120,7 +122,8 @@ const EditReceita = () => {
     const ingred = dadoRecebidoDoBanco.ingredientes;
     
     for (let index = 0; index < ingred.length; index++) {
-      setValue(ingredientes[index].nome, ingred[index].nome)
+      setValue(ingredientes[index].nome, ingred[index].nome);
+      setValue(ingredientes[index].quantidade, ingred[index].quantidade);
     }
 
 
@@ -227,7 +230,10 @@ const EditReceita = () => {
           nome: data.nomeDaReceita,
           tempoDePreparo: data.tempoDePreparo,
           foto: imagem ?? '',
-          ingredientes: ingredientes.map((item) => ({ nome: data[item.nome] })),
+          ingredientes: ingredientes.map((item) => ({ 
+            nome: data[item.nome],
+            quantidade: data[item.quantidade],
+          })),
           modoDePreparo: form.map((item) => ({ passos: data[item.passos] })),
         };
 
@@ -284,10 +290,12 @@ const removerElemento = (index:number) => {
 // ingredientes
 const adicionarElementoingredientes = () => {
 
-  const novoTituloName = `ingrediente-${uuidv4()}`;
+  const novoIngredientenome = `ingredienteNome-${uuidv4()}`;
+  const novoIngredienteQuant = `ingredienteQuantidade-${uuidv4()}`;
 
   const novoElemento:Ingredientes = {
-    nome: novoTituloName,
+    nome: novoIngredientenome,
+    quantidade: novoIngredienteQuant,
     };
   
   setIngredientes([...ingredientes, novoElemento ]);
@@ -400,24 +408,41 @@ const removerElementoingredientes = (index:number) => {
 
 
 
-
+<h5>**Coloque os ingredientes separadamente nos campos**</h5>
 {ingredientes.map((items, posicao) => (
         
         <div key={posicao}>
           <div><br/>
             <label className='textIngredientes'>Ingredientes {posicao}:</label>
 
+          
+            <br />
+            <label className='textIngredientes'>Nome do ingrediente {posicao}:</label>
             <Controller
               name={items.nome}
               control={control}
               render={({ field }) => <textarea
                                       {...field} 
-                                      placeholder="Coloque os ingredientes separadamente nos campos" 
+                                      placeholder="insira o nome do ingrediente aqui" 
                                       className='inputIngredientes' 
                                       required
                                       />}
             />
           </div>
+
+          <br />
+          <label className='textIngredientes'>Quantidade do ingrediente {posicao}:</label>
+          <Controller
+              name={items.quantidade}
+              control={control}
+              render={({ field }) => <textarea
+                                      {...field} 
+                                      placeholder="insira a quantidade do ingrediente aqui " 
+                                      className='inputIngredientes' 
+                                      required
+                                      />}
+            />
+
 
           {posicao === ingredientes.length - 1 && (
           <div className='caixaBtns'>

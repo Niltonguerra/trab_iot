@@ -125,31 +125,32 @@ export async function  editardadosAlimento(API:string,registro:string) {
 
 // chamada para criar
 
-export async function  criarPostAlimento(API:string) {
-
-fetch(`${BACKEND_URL}alimentos`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
-  },
-  body: API, // Converte o objeto API em JSON
-})
-
-
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Erro na solicitação'); // Trate erros de resposta aqui
-    }
-    return response.json(); // Converte a resposta em JSON
-  })
-  .then((data) => {
-    console.log(data); // Faça algo com os dados
-  })
-  .catch((error) => {
-    console.log(error); // Trate erros aqui
+export function criarPostAlimento(API: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    fetch(`${BACKEND_URL}alimentos`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: API,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        resolve(data); // Resolva a Promise com os dados da resposta
+      })
+      .catch((error) => {
+        console.error(error);
+        reject(error); // Rejeite a Promise se ocorrer um erro
+      });
   });
-
 }
+
 
 
 
@@ -167,3 +168,30 @@ export async function  deletarDadoAlimento(nome:string) {
     }
 }
 
+
+
+
+
+
+// traz todas as informações com base em uma informação de texto que pode estár presente em qualquer lugar do campo nome
+
+export function fetchAlimentosPesquisa(nome: string) {
+  return new Promise((resolve, reject) => {
+    fetch(`${BACKEND_URL}alimentos/nomeIncompleto/${nome}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error("Erro ao buscar dados. Status:", response.status);
+          reject("Erro ao buscar dados. Status: " + response.status);
+        }
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar dados:", error);
+        reject("Erro ao buscar dados: " + error.message);
+      });
+  });
+}

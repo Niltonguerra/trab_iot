@@ -93,15 +93,26 @@ const onSubmit = async (data: any) => {
   };
 
   const API = JSON.stringify(APIForm);
-  criarPostAlimento(API);
 
+  criarPostAlimento(API)
+  .then((data) => {
+    Swal.fire({
+      icon: "success",
+      title: "Cadastrado com sucesso! ",
+      showConfirmButton: false,
+      timer: 5000
+    });
+  })
+  .catch((error) => {
+    Swal.fire({
+      icon: "error",
+      title: "problema ao cadastrar, imagem muito pequena! ",
+      showConfirmButton: true,
+      timer: 5000
+    });
+  });
   
-  Swal.fire({
-    icon: "success",
-    title: "Cadastrado com sucesso! ",
-    showConfirmButton: false,
-    timer: 5000
-});
+  
 };
 
 

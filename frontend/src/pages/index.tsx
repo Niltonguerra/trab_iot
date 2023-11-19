@@ -72,14 +72,17 @@ const handleClick = () =>{
                 <h1 className='p-4 font-bold uppercase border-b border-none'>
                   <Link to="/" className='hover:text-white border-none'>Horti Conect</Link>
                 </h1>
+
+                
                 <div className='px-4 cursor-pointer md:hidden' onClick={handleClick} id='btn_menu'>
                   <svg className='w-6' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                   </svg>
                 </div>
-
               </div>
-              <ul className={`text-sm mt-6 ${showMenu.show} md:block`} id="menu">
+
+
+              {/* <ul className={`text-sm mt-6 ${showMenu.show} md:block`} id="menu">
                 <li className='py-1 font-bold text-gray-700'>
                   <Link to="/" className='flex justify-end px-4 border-none'>
                     <span>Home</span>
@@ -107,7 +110,7 @@ const handleClick = () =>{
 
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </nav>
           </div>
         
@@ -116,9 +119,26 @@ const handleClick = () =>{
 
     <main className='px-16 py-6 bg-gray-100 md:col-span-2'>
       <div className='flex justify-center md:justify-end'>
+        
+        {/* <Link to={`/dashboardComentarios`} className="flex mr-5 border-none border-0">
+          <img className="w-10 mr-2 ml-5 " src="/images/search.svg" alt="icon_navigate" />
+          pesquisar
+        </Link> */}
+
+        <Link to={`/search`} className="flex items-center mr-5 border-none border-0">
+          <img className="w-10 mr-2 ml-5" src="/images/search.svg" alt="icon_navigate" />
+          pesquisar
+        </Link>
+
+
+
         <Link to="/login"className="border-none"><button >Log in </button></Link>
         {/* <Link to="/" className='ml-2 transition duration-500 ease-out btn text-primary md:border-primary md:border-2 hover:primary hover:text-white border-none hover:bg-primary'>Sign up</Link> */}
+
+
       </div>
+
+      
 
       <header >
         <h2 className='text-6xl font-semibold text-gray-700'>Horta escolar</h2>

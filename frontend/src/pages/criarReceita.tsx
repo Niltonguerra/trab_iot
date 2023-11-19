@@ -75,7 +75,10 @@ const onSubmit = async (data:any) => {
       nome: data.nome,
       foto: imagemReceita ?? "foto não preenchida no campo foto no frontend",
       tempoDePreparo: data.tempoDePreparo,
-      ingredientes: ingredientes.map((item) => ({ nome: data[item.nome] })),
+      ingredientes: ingredientes.map((item) => ({ 
+        nome: data[item.nome],
+        quantidade: data[item.quantidade],
+      })),
       modoDePreparo: form.map((item) => ({ passos: data[item.passos] })),
     };
 
@@ -83,15 +86,31 @@ const onSubmit = async (data:any) => {
 
     // console.log(JSON.stringify(receitaData, null, 2));
 
-    criarPostReceita(API);
+
+    criarPostReceita(API)
+    .then((data) => {
+      Swal.fire({
+        icon: "success",
+        title: "Cadastrado com sucesso! ",
+        showConfirmButton: false,
+        timer: 5000
+    });
+    })
+    .catch((error) => {
+      Swal.fire({
+        icon: "error",
+        title: "problema ao cadastrar, imagem muito pequena! ",
+        showConfirmButton: true,
+        timer: 5000
+    });
+    });
+
+
+
+
+
 
     
-    Swal.fire({
-      icon: "success",
-      title: "Cadastrado com sucesso! ",
-      showConfirmButton: false,
-      timer: 5000
-  });
 
 
   } catch (error) {
@@ -132,10 +151,12 @@ const removerElemento = (index:number) => {
 // ingredientes
 const adicionarElementoingredientes = () => {
 
-  const novoTituloName = `ingrediente-${uuidv4()}`;
+  const novoIngredientenome = `ingredienteNome-${uuidv4()}`;
+  const novoIngredienteQuant = `ingredienteQuantidade-${uuidv4()}`;
 
   const novoElemento:Ingredientes = {
-    nome: novoTituloName,
+    nome: novoIngredientenome,
+    quantidade: novoIngredienteQuant,
     };
   
   setIngredientes([...ingredientes, novoElemento ]);
@@ -256,24 +277,45 @@ const removerElementoingredientes = (index:number) => {
 
 
 
-
+<h5>**Coloque os ingredientes separadamente nos campos**</h5>
 {ingredientes.map((items, posicao) => (
         
         <div key={posicao}>
           <div><br/>
             <label className='textIngredientes'>Ingrediente {posicao}:</label>
 
+            
+
+            <br />
+            <label className='textIngredientes'>Nome do ingrediente {posicao}:</label>
             <Controller
               name={items.nome}
               control={control}
               render={({ field }) => <textarea
                                       {...field} 
-                                      placeholder="Coloque os ingredientes separadamente nos campos" 
+                                      placeholder="insira o nome do ingrediente aqui" 
                                       className='inputIngredientes' 
                                       required
                                       />}
             />
           </div>
+
+          <br />
+          <label className='textIngredientes'>Quantidade do ingrediente {posicao}:</label>
+          <Controller
+              name={items.quantidade}
+              control={control}
+              render={({ field }) => <textarea
+                                      {...field} 
+                                      placeholder="insira a quantidade do ingrediente aqui " 
+                                      className='inputIngredientes' 
+                                      required
+                                      />}
+            />
+
+          
+
+
 
           {posicao === ingredientes.length - 1 && (
           <div className='caixaBtns'>

@@ -1,0 +1,64 @@
+
+.link{
+    display: flex;
+    border: none;
+}
+
+.barraDePesquisa{
+    display: flex;
+    justify-content: center;
+    
+    .imagemPesquisa{
+        width: 30px;
+        margin-right: 2px;
+        margin-left: 5px;
+        cursor: pointer;
+        padding-bottom: 10px;
+        padding-top: 50px;
+    }
+
+
+    .pesquisaInput{
+
+        cursor: pointer;
+        
+
+        &:not(:focus){
+
+            all: initial;
+
+            padding-top: 50px;
+            
+            border-bottom: 2px solid _palette(bg);
+            transition: border-color 0.3s ease;
+            width: 75%;
+            color: _palette(fg-light);
+            font-size: 1.5rem;
+            font-family: _font(family);
+            text-align: center;
+            &::placeholder{
+                text-align: center; /* Centraliza horizontalmente */
+                line-height: inherit; /* Centraliza verticalmente */
+            }
+            
+        }
+
+        &:focus{
+            
+            all: initial;
+
+            padding-top: 50px;
+            
+            border-bottom: 2px solid _palette(fg-light);
+            width: 75%;
+            color: _palette(fg-light);
+            font-size: 1.5rem;
+            font-family: _font(family);
+            text-align: center; /* Centraliza horizontalmente */
+            
+
+        }
+    }
+}
+
+

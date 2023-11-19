@@ -56,53 +56,37 @@ try {
 
 
 
-export async function  criarPostReceita(API:string) {
-  fetch(`${BACKEND_URL}receitas`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
-    },
-    body: API, // Converte o objeto API em JSON
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Erro na solicitação'); // Trate erros de resposta aqui
-      }
-      return response.json(); // Converte a resposta em JSON
+
+
+// cria um registro de dados no banco de dados
+
+export function criarPostReceita(API: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    fetch(`${BACKEND_URL}receitas`, {
+    
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: API,
     })
-    .then((data) => {
-      console.log(data); // Faça algo com os dados
-    })
-    .catch((error) => {
-      console.log(error); // Trate erros aqui
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erro na solicitação');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }
 
-// export function criarPostReceita(API: string): Promise<any> {
-//   return new Promise((resolve, reject) => {
-//     fetch('${BACKEND_URL}receitas', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json', // Defina o tipo de conteúdo como JSON
-//       },
-//       body: API, // Converte o objeto API em JSON
-//     })
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error('Erro na solicitação'); // Trate erros de resposta aqui
-//         }
-//         return response.json(); // Converte a resposta em JSON
-//       })
-//       .then((data) => {
-//         console.log(data); // Faça algo com os dados
-//         resolve(data);
-//       })
-//       .catch((error) => {
-//         console.log(error); // Trate erros aqui
-//         reject(error);
-//       });
-//   });
-// }
+
+
 
 export async function  editardadosReceitas(API:string,registro:string) {
     
@@ -168,6 +152,31 @@ export function fetchBuscaIngredientes(nomeAlimento:string) {
       })
       .catch(error => {
         reject(error);
+      });
+  });
+}
+
+
+
+// traz todas as informações com base em uma informação de texto que pode estár presente em qualquer lugar do campo nome
+
+export function fetchReceitasPesquisa(nome: string) {
+  return new Promise((resolve, reject) => {
+    fetch(`${BACKEND_URL}receitas/nomeIncompleto/${nome}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error("Erro ao buscar dados. Status:", response.status);
+          reject("Erro ao buscar dados. Status: " + response.status);
+        }
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar dados:", error);
+        reject("Erro ao buscar dados: " + error.message);
       });
   });
 }

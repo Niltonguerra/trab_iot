@@ -4,6 +4,7 @@
 
 export interface Ingredientes{
   nome: string;
+  quantidade: string;
 }
 
 export interface ModoDePreparo{
