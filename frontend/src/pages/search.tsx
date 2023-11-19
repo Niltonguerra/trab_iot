@@ -159,7 +159,7 @@ return (
             <img src={receita.foto.imagem_media.url} className='object-cover w-full h-32 sm:h-48'  alt="anime-2" />
             <div className='m-4'>
             <span className='font-bold'>{receita.nome}</span>
-            <span className='block text-sm text-gray-500'>Ingredientes: {receita.ingredientes.map(ingrediente => ingrediente.nome).join(', ')}</span>
+            <span className='block text-sm text-gray-500'>Ingredientes: {receita.ingredientes.map((ingrediente:any) => (ingrediente.nome).join(', '))}</span>
             </div>
             
 

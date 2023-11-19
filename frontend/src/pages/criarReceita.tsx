@@ -89,6 +89,7 @@ const onSubmit = async (data:any) => {
 
     criarPostReceita(API)
     .then((data) => {
+      console.log("erro: " + data)
       Swal.fire({
         icon: "success",
         title: "Cadastrado com sucesso! ",
@@ -97,6 +98,7 @@ const onSubmit = async (data:any) => {
     });
     })
     .catch((error) => {
+      console.log("erro: " + error)
       Swal.fire({
         icon: "error",
         title: "problema ao cadastrar, imagem muito pequena! ",
