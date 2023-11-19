@@ -2986,6 +2986,14 @@ body.is-ie .wrapper.fullscreen {
   font-size: 1.1rem;
   margin: 10px;
 }
+.receitas .container .modal .text .conteudo .ingredientes-container {
+  display: flex;
+  justify-content: flex-start; /* Isso alinha os ingredientes à esquerda; ajuste conforme necessário */
+  flex-wrap: wrap;
+}
+.receitas .container .modal .text .conteudo .ingrediente-item {
+  margin-right: 10px; /* Ajuste o espaçamento entre os ingredientes conforme necessário */
+}
 
 .container--login {
   margin: 0;

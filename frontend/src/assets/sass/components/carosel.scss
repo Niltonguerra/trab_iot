@@ -414,6 +414,20 @@
                 font-weight: 100;
                 font-size: 1.1rem;
                 margin: 10px;
+
+
+                .ingredientes-container {
+                    display: flex;
+                    justify-content: flex-start; /* Isso alinha os ingredientes à esquerda; ajuste conforme necessário */
+                    flex-wrap: wrap;
+                  }
+                  
+                  .ingrediente-item {
+                    margin-right: 10px; /* Ajuste o espaçamento entre os ingredientes conforme necessário */
+                  }
+                  
+                 
+
             }
         }
 

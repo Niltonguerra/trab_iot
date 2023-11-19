@@ -57,13 +57,22 @@ export default function CaroselReceitas(props:any) {
                     <div className='titulo'>{props.receita.nome}</div>
                     <div className='conteudo'> 
                         
-                    <br/>
-                        ingredientes:<br/>
-                        {props.receita && props.receita.ingredientes.map((ingred:any, index:number) => (
-                          <div key={index+ingred.nome}>
-                              {ingred.nome}<br/>
+                    
+                        ingredientes:
+                        {props.receita && (
+                          <div className='ingredientes-container'>
+                            {props.receita.ingredientes.map((ingred: any, index: number) => (
+
+                              <div key={index + ingred.nome} className='ingrediente-item'>
+
+                                <span className='nome'>{ingred.nome}:</span>
+                                <span className='quantidade'>{ingred.quantidade}</span> &nbsp; ---
+
+                              </div>
+
+                            ))}
                           </div>
-                        ))}
+                        )}
 
                     <br/>
                     tempo de preparo: {props.receita.tempoDePreparo} 

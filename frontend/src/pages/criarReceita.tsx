@@ -89,7 +89,7 @@ const onSubmit = async (data:any) => {
 
     criarPostReceita(API)
     .then((data) => {
-      console.log("erro: " + data)
+      console.log("mensagem: " + data)
       Swal.fire({
         icon: "success",
         title: "Cadastrado com sucesso! ",
