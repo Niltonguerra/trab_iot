@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import  { fetchAlimentosData} from "../API/alimentos"
 import {useState, useEffect } from "react";
 
-type CounterState = {
-  show: "hidden" | "block";
-}
+
 
 function Home() {
 
@@ -41,16 +39,22 @@ function Home() {
 
 
 
-const [showMenu,setShowMenu] = useState<CounterState>({show:"hidden"});
+  // parte do código responsavel pelo menu suspenso na tela do celular
 
 
-const handleClick = () =>{
-  if(showMenu.show === "hidden"){
-    setShowMenu({show:"block"});
-  }else{
-    setShowMenu({show:"hidden"});
-  }
-}
+  // type CounterState = {
+  //   show: "hidden" | "block";
+  // }
+
+// const [showMenu,setShowMenu] = useState<CounterState>({show:"hidden"});
+
+// const handleClick = () =>{
+//   if(showMenu.show === "hidden"){
+//     setShowMenu({show:"block"});
+//   }else{
+//     setShowMenu({show:"hidden"});
+//   }
+// }
 
 
 
@@ -74,11 +78,13 @@ const handleClick = () =>{
                 </h1>
 
                 
-                <div className='px-4 cursor-pointer md:hidden' onClick={handleClick} id='btn_menu'>
+                {/* <div className='px-4 cursor-pointer md:hidden' onClick={handleClick} id='btn_menu'>
                   <svg className='w-6' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                   </svg>
-                </div>
+                </div> */}
+
+
               </div>
 
 
@@ -126,8 +132,8 @@ const handleClick = () =>{
         </Link> */}
 
         <Link to={`/search`} className="flex items-center mr-5 border-none border-0">
-          <img className="w-10 mr-2 ml-5" src="/images/search.svg" alt="icon_navigate" />
-          pesquisar
+          <img className="w-10 mr-2 ml-5 " src="/images/search.svg" alt="icon_navigate" />
+          
         </Link>
 
 
