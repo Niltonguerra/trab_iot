@@ -55,18 +55,18 @@ const delForm = async (id:string) => {
 
                             <div className="btns">
                                 <Link to={`/dashboardReceitas`} className="link">
-                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                    ir para posts de receitas
+                                    <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                    <label>ir para posts de receitas</label>
                                 </Link>
 
                                 <Link to={`/dashboardPost`} className="link">
-                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                    ir para posts de hortaliças
+                                    <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                    <label>ir para hortaliças</label>
                                 </Link>
 
                                 <Link to={`/`} className="link">
-                                    <img className="icon_create" src="/images/log-in-outline.svg" alt="icon_navigate" />
-                                    Sair da conta
+                                    <img className="icon" src="/images/log-in-outline.svg" alt="icon_navigate" />
+                                    <label>Sair da conta</label>
                                 </Link>
                             </div>
                         </div>

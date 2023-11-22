@@ -4,7 +4,7 @@ import { FormElement, SubTopico, FormPostAPITopico, FormPostAPISubTopico,FormPos
 import { useForm, Controller } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import  {fetchAlimentosRegistro,editardadosAlimento} from "../API/alimentos"
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { imgbbUmaImagem } from '../API/imgbb';
 import Swal from 'sweetalert2';
 
@@ -639,8 +639,25 @@ const excluirSubcampo = (elementIndex:number, subcampoIndex:number) => {
                 <div className="conteudo">
 
                 
-    <h1 className='titulo'> FORMULARIO DE EDIÇÃO DE POST</h1>
+                <div className="cabecario">
 
+                        
+                  <div className="flexbox">
+
+
+                      <div className="btns">
+                                  <Link to={`/dashboardPost`} className="link">
+                                      <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                      <label>ir para hortaliças</label>
+                                      
+                                  </Link>
+
+                      <h1 className='titulo'> FORMULARIO DE EDIÇÃO DE POST</h1>
+
+
+                      </div>
+                  </div>
+                </div>
 
     <form onSubmit={handleSubmit(onSubmit)}>
 

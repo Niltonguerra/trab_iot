@@ -22,17 +22,31 @@ export async function fetchReceitasNome() {
 
 // trás todas as informações de todos os registros do banco de dados do banco de dados
 export async function fetchReceitasData() {
-try {
-  const response = await fetch(`${BACKEND_URL}receitas`);
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  } else {
-    console.error("Erro ao buscar dados. Status:", response.status);
-  }
-} catch (error) {
-  console.error("Erro ao buscar dados:", error);
-}
+
+return new Promise((resolve, reject) => {
+  fetch(`${BACKEND_URL}receitas`)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.error("Erro ao buscar dados. Status:", response.status);
+        reject("Erro ao buscar dados. Status: " + response.status);
+      }
+    })
+    .then(data => {
+      resolve(data);
+    })
+    .catch(error => {
+      console.error("Erro ao buscar dados:", error);
+      reject("Erro ao buscar dados: " + error.message);
+    });
+});
+
+
+
+
+
+
 
 }
 
@@ -190,23 +204,23 @@ export function fetchBuscaIngredientes(nomeAlimento:string) {
 
 // traz todas as informações com base em uma informação de texto que pode estár presente em qualquer lugar do campo nome
 
-export function fetchReceitasPesquisa(nome: string) {
-  return new Promise((resolve, reject) => {
-    fetch(`${BACKEND_URL}receitas/nomeIncompleto/${nome}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.error("Erro ao buscar dados. Status:", response.status);
-          reject("Erro ao buscar dados. Status: " + response.status);
-        }
-      })
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar dados:", error);
-        reject("Erro ao buscar dados: " + error.message);
-      });
-  });
-}
+// export function fetchReceitasPesquisa(nome: string) {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${BACKEND_URL}receitas/nomeIncompleto/${nome}`)
+//       .then(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           console.error("Erro ao buscar dados. Status:", response.status);
+//           reject("Erro ao buscar dados. Status: " + response.status);
+//         }
+//       })
+//       .then(data => {
+//         resolve(data);
+//       })
+//       .catch(error => {
+//         console.error("Erro ao buscar dados:", error);
+//         reject("Erro ao buscar dados: " + error.message);
+//       });
+//   });
+// }

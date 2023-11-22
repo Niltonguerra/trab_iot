@@ -3011,6 +3011,22 @@ body.is-ie .wrapper.fullscreen {
   min-height: 50vh;
   min-width: 25vw;
 }
+@media screen and (max-width: 980px) {
+  .container--login .login {
+    min-height: 50vh;
+    min-width: 75vw;
+  }
+}
+@media screen and (max-width: 736px) {
+  .container--login .login {
+    position: relative;
+    top: 20vh;
+    left: 0;
+    transform: translate(0%, 0%);
+    min-height: 90vh;
+    min-width: 90vw;
+  }
+}
 .container--login .login .conteudo {
   margin-bottom: 5vh;
 }
@@ -3059,6 +3075,15 @@ body.is-ie .wrapper.fullscreen {
   box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.3);
   min-height: auto;
   width: 90vw;
+}
+@media screen and (max-width: 736px) {
+  .container--criar .container {
+    position: relative;
+    top: 10vh;
+    left: 0;
+    transform: translate(0%, 0%);
+    min-width: 100%;
+  }
 }
 .container--criar .container .titulo {
   text-align: center;
@@ -3165,6 +3190,13 @@ body.is-ie .wrapper.fullscreen {
   margin-bottom: 25px;
 }
 
+.icon {
+  height: 30px;
+  margin-left: 15px;
+  margin-right: 7px;
+  margin-top: 1px;
+}
+
 .container--dashboard {
   margin: 0;
   padding: 0;
@@ -3181,16 +3213,19 @@ body.is-ie .wrapper.fullscreen {
   height: auto;
   width: 90vw;
 }
+@media screen and (max-width: 736px) {
+  .container--dashboard .container {
+    position: relative;
+    top: 10vh;
+    left: 0;
+    transform: translate(0%, 0%);
+    min-width: 100%;
+  }
+}
 .container--dashboard .container .conteudo {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-}
-.container--dashboard .container .conteudo .icon_create {
-  height: 30px;
-  margin-left: 15px;
-  margin-right: 7px;
-  margin-top: 1px;
 }
 .container--dashboard .container .conteudo .cabecario {
   display: block;
@@ -3210,6 +3245,10 @@ body.is-ie .wrapper.fullscreen {
   border: none;
   display: flex;
 }
+.container--dashboard .container .conteudo .cabecario .flexbox .btns .link label {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
 .container--dashboard .container .conteudo .cabecario .criar {
   margin: 30px;
   display: block;
@@ -3220,9 +3259,6 @@ body.is-ie .wrapper.fullscreen {
 .container--dashboard .container .conteudo .cabecario .criar .botaoCriar {
   display: flex;
   border: none;
-}
-.container--dashboard .container .conteudo .icon {
-  height: 30px;
 }
 .container--dashboard .container .conteudo td p {
   padding: 0;

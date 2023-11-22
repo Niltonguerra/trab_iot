@@ -1,39 +1,65 @@
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 
-import { fetchReceitasData,fetchReceitasPesquisa } from "../API/receitas";
-import  { fetchAlimentosData,fetchAlimentosPesquisa} from "../API/alimentos"
+import { fetchReceitasData} from "../API/receitas";
+import  { fetchAlimentosData} from "../API/alimentos"
 
 
 function Search() {
 
-
-
-    const [ receitas, setReceitas] = useState<any>([]);
+// useState que iram ser usados para exibir e para manipular
+    const [receitas, setReceitas] = useState<any>([]);
     const [alimentos, setAlimentos] = useState<any>([]);
-    const [confirDadosChegaram,setConfirDadosChegaram] = useState(false);
+
+
+// useState que iram receber receber os dados do banco de dados
+    const [receitasBuscadas, setReceitasBuscadas] = useState<any>([]);
+    const [alimentosBuscadas, setAlimentosBuscadas] = useState<any>([]);
+
+
+
+    // é usado para realizar as pesquisas
     const [pesquisa,setPesquisa] = useState<string>("");
+
+    // faz o controle do ordenamento da lista
+    const [ordenar,setOrdenar] = useState<boolean>(false);
+
+
 
 
     const fetchData = async () => {
         try {
-            const receitasData = await fetchReceitasData();
-            setReceitas(receitasData);
 
-            const alimentosData = await fetchAlimentosData();
-            setAlimentos(alimentosData);
 
-        
-            setConfirDadosChegaram(true);
-        } catch (error) {
-            console.error("Erro ao buscar dados:", error);
-        }
+                fetchReceitasData()
+                .then((data) => {
+                    setReceitasBuscadas(data);
+                    setReceitas(data)
+                })
+                .catch((error) => {
+                    console.log("erro ao carregar dados buscar de receitas dados: erro: ", error);
+                });
+
+
+
+                fetchAlimentosData()
+                .then((data) => {
+                    setAlimentosBuscadas(data);
+                    setAlimentos(data);
+
+                })
+                .catch((error) => {
+                    console.log("erro ao carregar dados de alimentos dados: erro: ", error);
+                });
+
+            
+            } catch (error) {
+                console.error("Erro ao buscar dados:", error);
+            }
         };
 
     useEffect(() => {
-        if(confirDadosChegaram === false){
-            fetchData(); // Chame a função assíncrona para buscar os dados
-        }
+        fetchData(); // Chame a função assíncrona para buscar os dados
     }, []);
 
 
@@ -48,13 +74,30 @@ function Search() {
 
 
 
-    const fetchPesquisa = async ( nome: string) => {
+    const fetchPesquisa = async () => {
         try {
-        const receitasData = await fetchReceitasPesquisa(nome);
-        setReceitas(receitasData);
+        
 
-            const alimentosData = await fetchAlimentosPesquisa(nome);
-            setAlimentos(alimentosData);
+            // faz a pesquisa do alimento
+            const filtroAlimento = alimentosBuscadas.filter((objet: { nome: string; }) => {
+                
+                return objet.nome.toLowerCase().includes(pesquisa);
+            });
+            
+            setAlimentos(filtroAlimento);
+
+
+
+
+
+
+            // faz a pesquisa da receita
+            const filtroReceita = receitasBuscadas.filter((object: { nome: string; }) => {
+                
+                return object.nome.toLowerCase().includes(pesquisa);
+            });
+
+            setReceitas(filtroReceita);
             
 
         } catch (error) {
@@ -62,14 +105,69 @@ function Search() {
         }
     };
 
+
+
     const handleKeyPress = (event:any) => {
         if (event.key === 'Enter') {
-        fetchPesquisa(pesquisa);
+            fetchPesquisa();
+        
         }
+
     };
 
 
 
+
+
+
+
+// ordena os dados
+const ordenarLista = () => {
+
+    setOrdenar(!ordenar)
+
+    // crescente
+    if(ordenar){
+
+        // ordena a lista de alimentos
+        const novoEstadoOrdenadoAlimentos = [...alimentos].sort((a, b) => {
+            // Use localeCompare para comparar strings de forma sensível à localização
+            return a.nome.localeCompare(b.nome);
+        });
+        setAlimentos(novoEstadoOrdenadoAlimentos);
+
+
+        // ordena a lista de receitas
+        const novoEstadoOrdenadoReceitas = [...receitas].sort((a, b) => {
+            // Use localeCompare para comparar strings de forma sensível à localização
+            return a.nome.localeCompare(b.nome);
+        });
+        setReceitas(novoEstadoOrdenadoReceitas);
+
+
+    }
+    // decrescente
+    else{
+        // ordena a lista de alimentos
+        const novoEstadoOrdenado = [...alimentos].sort((a, b) => {
+            // Use localeCompare para comparar strings de forma sensível à localização
+            return b.nome.localeCompare(a.nome);
+        });
+    
+        setAlimentos(novoEstadoOrdenado);
+
+
+        
+        // ordena a lista de receitas
+        const novoEstadoOrdenadoReceitas = [...receitas].sort((a, b) => {
+            // Use localeCompare para comparar strings de forma sensível à localização
+            return b.nome.localeCompare(a.nome);
+        });
+        setReceitas(novoEstadoOrdenadoReceitas);
+
+
+    }
+}
 
 
 
@@ -89,7 +187,7 @@ return (
 
 
                 <Link to={`/`} className="link">
-                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
+                    <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
                     voltar para a ultima home
                 </Link>
 
@@ -101,19 +199,26 @@ return (
                         placeholder='Digite o que você quer buscar, por exemplo: "Cenoura"' 
                         className="pesquisaInput" 
                         onChange={(e) => setPesquisa(e.target.value)} 
-                        onKeyPress={handleKeyPress}
+                        onKeyUp={handleKeyPress}
                     />
                     <img 
                         className="imagemPesquisa" 
                         src="/images/search.svg" 
                         alt="icon_navigate" 
-                        onClick={() => fetchPesquisa(pesquisa)}
+                        onClick={() => fetchPesquisa()}
                     />
                     
+                    <img 
+                        className="imagemPesquisa" 
+                        src="/images/arrow-up-outline.svg" 
+                        alt="icon_navigate" 
+                        onClick={() => ordenarLista()}
+                        
+                    />
                 </nav>
 
 
-
+                
 
 
 

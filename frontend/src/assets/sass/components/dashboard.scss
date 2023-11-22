@@ -1,3 +1,14 @@
+
+
+.icon{
+    height: 30px;
+    margin-left: 15px;
+    margin-right: 7px;
+    margin-top: 1px;
+    
+}
+
+
 .container--dashboard{
     margin: 0;
     padding: 0;
@@ -15,19 +26,26 @@
         width: 90vw;
 
 
+
+
+        @include breakpoint('<=small') {
+            
+            position: relative;
+            
+            top:10vh;
+            
+            left: 0;
+            transform: translate(0%, 0%);
+            
+            min-width: 100%;
+        }
+
         .conteudo{
             position: relative;
             left: 50%;
             transform: translate(-50%);
 
-            .icon_create{
-                height: 30px;
-                margin-left: 15px;
-                margin-right: 7px;
-                margin-top: 1px;
-                
-            }
-        
+            
             .cabecario{
                 display: block;
                 align-items: center;
@@ -41,11 +59,16 @@
                     margin-top:3% ;
                     margin-left: auto;
                     align-self: center;
-                     
+                    
                     .link{
                         margin-bottom: 15px;    
                         border: none;
                         display: flex;
+                        
+                        label{
+                            font-size: .7rem;
+                            font-weight: 400;
+                        }
                     }
                 }
                 
@@ -66,14 +89,6 @@
             }
             
             }
-
-
-            
-                
-                .icon{
-                    height: 30px;
-                    
-                }
 
 
                 

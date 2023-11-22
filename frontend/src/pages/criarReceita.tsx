@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { criarPostReceita } from '../API/receitas';
 import { imgbbUmaImagem } from '../API/imgbb';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 
@@ -183,7 +184,35 @@ const removerElementoingredientes = (index:number) => {
                 <div className="conteudo">
 
 
-    <h1 className='titulo'> FORMULARIO DE CRIAÇÃO DE RECEITA</h1>
+
+
+
+                <div className="cabecario">
+
+                        
+                  <div className="flexbox">
+
+
+                      <div className="btns">
+                                  <Link to={`/dashboardReceitas`} className="link">
+                                      <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                      <label>ir para Receitas</label>
+                                      
+                                  </Link>
+
+
+                                  <h1 className='titulo'> FORMULARIO DE CRIAÇÃO DE RECEITA</h1>
+    
+
+                      </div>
+                  </div>
+                </div>
+
+
+
+
+
+
 
 
     <form onSubmit={handleSubmit(onSubmit)}>

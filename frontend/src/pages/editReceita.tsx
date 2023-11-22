@@ -3,7 +3,7 @@ import {ModoDePreparo, Ingredientes, ReceitaAPI } from '../types/typesReceitas';
 import { useForm, Controller } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { editardadosReceitas, fetchReceitasRegistro } from '../API/receitas';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { imgbbUmaImagem } from '../API/imgbb';
 import Swal from 'sweetalert2';
 
@@ -320,7 +320,27 @@ const removerElementoingredientes = (index:number) => {
                 <div className="conteudo">
 
 
-    <h1 className='titulo'> FORMULARIO DE EDIÇÃO DE RECEITA</h1>
+                <div className="cabecario">
+
+                        
+                  <div className="flexbox">
+
+
+                      <div className="btns">
+                                  <Link to={`/dashboardReceitas`} className="link">
+                                      <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                      <label>ir para Receitas</label>
+                                      
+                                  </Link>
+
+
+                                  <h1 className='titulo'> FORMULARIO DE EDIÇÃO DE RECEITA</h1>
+
+
+                      </div>
+                  </div>
+                </div>
+
 
 
     <form onSubmit={handleSubmit(onSubmit)}>

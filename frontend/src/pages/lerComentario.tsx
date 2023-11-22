@@ -1,5 +1,5 @@
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { fetchFormRegistro } from '../API/formularioAPI';
 import { useEffect,useState } from 'react';
@@ -93,7 +93,30 @@ return (
                 <div className="conteudo">
 
 
-    <h1 className='titulo'>Ler comentario </h1>
+
+                <div className="cabecario">
+                    
+                    <div className="flexbox">
+
+
+                        <div className="btns">
+                                    <Link to={`/dashboardComentarios`} className="link">
+                                        <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                        <label>ir para comentarios</label>
+                                    </Link>
+
+
+                                    <h1 className='titulo'>Ler comentario </h1>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+    
 
 
     <form>

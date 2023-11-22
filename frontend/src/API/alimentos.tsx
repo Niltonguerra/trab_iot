@@ -175,23 +175,23 @@ export async function  deletarDadoAlimento(nome:string) {
 
 // traz todas as informações com base em uma informação de texto que pode estár presente em qualquer lugar do campo nome
 
-export function fetchAlimentosPesquisa(nome: string) {
-  return new Promise((resolve, reject) => {
-    fetch(`${BACKEND_URL}alimentos/nomeIncompleto/${nome}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.error("Erro ao buscar dados. Status:", response.status);
-          reject("Erro ao buscar dados. Status: " + response.status);
-        }
-      })
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar dados:", error);
-        reject("Erro ao buscar dados: " + error.message);
-      });
-  });
-}
+// export function fetchAlimentosPesquisa(nome: string) {
+//   return new Promise((resolve, reject) => {
+//     fetch(`${BACKEND_URL}alimentos/nomeIncompleto/${nome}`)
+//       .then(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           console.error("Erro ao buscar dados. Status:", response.status);
+//           reject("Erro ao buscar dados. Status: " + response.status);
+//         }
+//       })
+//       .then(data => {
+//         resolve(data);
+//       })
+//       .catch(error => {
+//         console.error("Erro ao buscar dados:", error);
+//         reject("Erro ao buscar dados: " + error.message);
+//       });
+//   });
+// }

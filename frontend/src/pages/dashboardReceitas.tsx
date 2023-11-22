@@ -59,18 +59,19 @@ const delAlimento = async (nome:string) => {
                         
                             <div className="btns">
                                 <Link to={`/dashboardPost`} className="link">
-                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                    ir para posts de hortaliças
+                                    <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                    <label>ir para hortaliças</label>
+                                    
                                 </Link>
 
                                 <Link to={`/dashboardComentarios`} className="link">
-                                    <img className="icon_create" src="/images/navigate.svg" alt="icon_navigate" />
-                                    ir para comentarios
+                                    <img className="icon" src="/images/navigate.svg" alt="icon_navigate" />
+                                    <label>ir para comentarios</label>
                                 </Link>
 
                                 <Link to={`/`} className="link">
-                                    <img className="icon_create" src="/images/log-in-outline.svg" alt="icon_navigate" />
-                                    Sair da conta
+                                    <img className="icon" src="/images/log-in-outline.svg" alt="icon_navigate" />
+                                    <label>Sair da conta</label>
                                 </Link>
                             </div>
 
@@ -84,7 +85,7 @@ const delAlimento = async (nome:string) => {
                         <div className="criar">
                             <Link className="botaoCriar" to="/criarReceita">
                                 Criar nova receita
-                                <img className="icon_create" src="/images/create.svg" alt="icon_create" />
+                                <img className="icon" src="/images/create.svg" alt="icon" />
                             </Link>
                         </div>
 
