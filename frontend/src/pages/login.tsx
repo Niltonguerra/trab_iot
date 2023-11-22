@@ -7,11 +7,11 @@ import { zodResolver  } from "@hookform/resolvers/zod";
 
 const zodLoginUserFormSchema = z.object({
   nome: z.string().nonempty('o nome é obrigatório')
-  .min(3,'o nome deve ser no minimo 3 caracteres'),
+  .min(4,'4 caracteres é o minimo'),
 
   senha: z.string()
   .nonempty('a senha é obrigatório')
-  .min(3,'a senha deve ser no minimo 3 caracteres'),
+  .min(4,'4 caracteres é o minimo'),
 
 });
 
@@ -37,14 +37,8 @@ function Login() {
     
       // Verifique se o nome e a senha são "admin"
       if (data.nome === "admin" && data.senha === "admin") {
-        
         // Redirecione o usuário para a página desejada
         navegate("/dashboardPost"); // Altere para a URL correta
-
-      } else {
-        // Exiba uma mensagem de erro se o login for inválido
-        alert("Nome de usuário ou senha incorretos.");
-
       }
 
   };
@@ -88,7 +82,7 @@ function Login() {
                                                   required
                                                 />}
                       />
-                    {errors.nome && <p className="error">{errors.nome.message}</p>}
+                    {errors.nome && <h6 className="error">{errors.nome.message}</h6>}
                     
                   </div>
 
@@ -106,7 +100,7 @@ function Login() {
                                                   required
                                                 />}
                       />
-                    {errors.senha && <p className="error">{errors.senha.message}</p>}
+                    {errors.senha && <h6 className="error">{errors.senha.message}</h6>}
                   </div>
                 </div>
 
